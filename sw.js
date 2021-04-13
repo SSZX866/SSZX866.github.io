@@ -1,11 +1,6 @@
----
-layout: compress
-# PWA service worker
----
+self.importScripts('/assets/js/data/swcache.js');
 
-self.importScripts('{{ "/assets/js/data/swcache.js" | relative_url }}');
-
-const cacheName = 'chirpy-{{ "now" | date: "%Y%m%d.%H%M" }}';
+const cacheName = 'chirpy-20210413.1917';
 
 function verifyDomain(url) {
   for (const domain of allowedDomains) {
@@ -73,3 +68,4 @@ self.addEventListener('activate', e => {
     })
   );
 });
+
