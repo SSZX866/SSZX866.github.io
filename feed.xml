@@ -1,42 +1,38 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>/</id>
-  <title>Chirpy</title>
+  <id>https://sszx866.github.io/</id>
+  <title>伸手摘星</title>
   <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
-  <updated>2021-04-13T19:17:14+08:00</updated>
+  <updated>2021-04-14T15:14:22+08:00</updated>
   <author>
-    <name>your_full_name</name>
-    <uri>/</uri>
+    <name>Weijia Li</name>
+    <uri>https://sszx866.github.io/</uri>
   </author>
-  <link rel="self" type="application/atom+xml" href="/feed.xml"/>
+  <link rel="self" type="application/atom+xml" href="https://sszx866.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en-US"
-    href="/"/>
+    href="https://sszx866.github.io/"/>
   <generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator>
-  <rights> © 2021 your_full_name </rights>
+  <rights> © 2021 Weijia Li </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
   
   <entry>
-    <title>Enable Google Page Views</title>
-    <link href="/posts/enable-google-pv/" rel="alternate" type="text/html" title="Enable Google Page Views" />
-    <published>2021-01-04T07:32:00+08:00</published>
+    <title>Leetcode</title>
+    <link href="https://sszx866.github.io/posts/LeetCode/" rel="alternate" type="text/html" title="Leetcode" />
+    <published>2021-04-14T00:00:00+08:00</published>
   
-    <updated>2021-01-04T07:32:00+08:00</updated>
+    <updated>2021-04-14T00:00:00+08:00</updated>
   
-    <id>/posts/enable-google-pv/</id>
-    <content src="/posts/enable-google-pv/" />
+    <id>https://sszx866.github.io/posts/LeetCode/</id>
+    <content src="https://sszx866.github.io/posts/LeetCode/" />
     <author>
-      <name>your_full_name</name>
+      <name>Weijia Li</name>
     </author>
 
   
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
     
   
 
@@ -48,11 +44,62 @@
 
 
 
-      This post is to enable Page Views on the Chirpy theme based blog that you just built. This requires technical knowledge and it’s recommended to keep the google_analytics.pv.* empty unless you have a good reason. If your website has low traffic, the page views count would discourage you to write more blogs. With that said, let’s start with the setup.
+      LeetCode
 
-Set up Google Analytics
+一、Note
 
-Create GA account a...
+1.动态规划
+
+
+  题目特点
+
+
+1.计数
+
+​	-有多少种方式走到右下角
+
+​	-有多少种方式选出k个数使得和是Sum
+
+2.求最大值最小值
+
+​	-从左上角走到右下角路径的最大数字和
+
+​	-最长上升子序列长度
+
+3.求存在性
+
+​	-取石子游戏，先手是否必胜
+
+​	-能不能选出k个数使得和是sum
+
+
+  计算步骤
+
+
+1.确定状态
+
+
+  最后一步（最优策略中使用的最后一枚硬币ak）
+  化成子问题（最少的硬币拼出更小的面值27-ak）
+
+
+2.转移方程（列出递归方程）
+
+
+  f[x]=min{f[x-2]+1,f[x-5]+1,f[x-7]+1}
+
+
+3.确定初始条件和边界情况
+
+若初始值用转移方程算不出，则需手动定义初始条件F[0]
+
+4.计算顺序
+
+多为从小到大F[0],F[1],F[2],…
+
+二维多为从上到下，从左到右
+
+目的...
     </summary>
   
 
@@ -60,23 +107,19 @@ Create GA account a...
 
   
   <entry>
-    <title>Customize the Favicon</title>
-    <link href="/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
-    <published>2019-08-11T00:34:00+08:00</published>
+    <title>Python</title>
+    <link href="https://sszx866.github.io/posts/Python/" rel="alternate" type="text/html" title="Python" />
+    <published>2021-04-13T00:00:00+08:00</published>
   
-    <updated>2019-08-11T00:34:00+08:00</updated>
+    <updated>2021-04-13T00:00:00+08:00</updated>
   
-    <id>/posts/customize-the-favicon/</id>
-    <content src="/posts/customize-the-favicon/" />
+    <id>https://sszx866.github.io/posts/Python/</id>
+    <content src="https://sszx866.github.io/posts/Python/" />
     <author>
-      <name>your_full_name</name>
+      <name>Weijia Li</name>
     </author>
 
   
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
     
   
 
@@ -88,13 +131,28 @@ Create GA account a...
 
 
 
-      In Chirpy, the image files of Favicons are placed in assets/img/favicons/. You may need to replace them with your own. So let’s see how to customize these Favicons.
+      Python学习笔记
 
-With a square image (PNG, JPG or GIF) in hand, open the site Favicon &amp;amp; App Icon Generator and upload your original image.
+1、内置函数（Built-in Functions）
+
+set()
+
+set() 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
+
+参数说明：
 
 
+  iterable – 可迭代对象对象；
 
-Click button Create Favicon and wait a moment for the website to generate the icons of various sizes a...
+
+&amp;gt;&amp;gt;&amp;gt;x = set('runoob')
+&amp;gt;&amp;gt;&amp;gt; y = set('google')
+&amp;gt;&amp;gt;&amp;gt; x, y
+(set(['b', 'r', 'u', 'o', 'n']), set(['e', 'o', 'g', 'l']))   # 重复的被删除
+({'n', 'u', 'o', 'b', 'r'}, {'e', 'l', 'g', 'o'}) #python3.7.9显示结果
+&amp;gt;&amp;gt;&amp;gt; x &amp;amp; y         # 交集
+set(['o'])
+&amp;...
     </summary>
   
 
@@ -102,23 +160,19 @@ Click button Create Favicon and wait a moment for the website to generate the ic
 
   
   <entry>
-    <title>Getting Started</title>
-    <link href="/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" />
-    <published>2019-08-09T20:55:00+08:00</published>
+    <title>Selenium</title>
+    <link href="https://sszx866.github.io/posts/Selenium/" rel="alternate" type="text/html" title="Selenium" />
+    <published>2021-03-25T00:00:00+08:00</published>
   
-    <updated>2019-08-09T20:55:00+08:00</updated>
+    <updated>2021-03-25T00:00:00+08:00</updated>
   
-    <id>/posts/getting-started/</id>
-    <content src="/posts/getting-started/" />
+    <id>https://sszx866.github.io/posts/Selenium/</id>
+    <content src="https://sszx866.github.io/posts/Selenium/" />
     <author>
-      <name>your_full_name</name>
+      <name>Weijia Li</name>
     </author>
 
   
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
     
   
 
@@ -130,20 +184,29 @@ Click button Create Favicon and wait a moment for the website to generate the ic
 
 
 
-      Prerequisites
+      Selenium
 
-Follow the Jekyll Docs to complete the installation of Ruby, RubyGems, Jekyll and Bundler.
+一、CSS Selector
 
-Installation
+‘&amp;gt;’ 和 ‘空格’    ‘ &amp;gt;’ 表示子节点，’空格’ 表示后代
 
-There are two ways to get the theme:
+’#’表示id ‘.’表示css ‘,’ 组选择器可选取多个元素且优先级最低
 
+:nth-child(x) 选取第x个子节点
 
-  Install from RubyGems - Easy to update, isolate irrelevant project files so you can focus on writing.
-  Fork on GitHub - Convenient for custom development, but difficult to update, only suitable for web developers.
+:nth-last-child(x) 选取倒数第x个子节点
 
+span:nth-of-type(1) 选取第一个标签为span的节点
 
-Installing the The...
+span:nth-last-of-type(1) 选取倒数第一个标签为span的节点
+
+#t1 :nth-child(odd/even) 选取id为t1下的奇数/偶数子节点
+
+#t1 p:nth-child(odd/even) 选取id为t1下的标签为p的奇数/偶数节点
+
+h3 + span 选取所有与h3相邻（兄弟）的span节点
+
+h3 ~ span 选取所有在h3后所有的span节点（...
     </summary>
   
 
@@ -151,23 +214,19 @@ Installing the The...
 
   
   <entry>
-    <title>Writing a New Post</title>
-    <link href="/posts/write-a-new-post/" rel="alternate" type="text/html" title="Writing a New Post" />
-    <published>2019-08-08T14:10:00+08:00</published>
+    <title>Appium</title>
+    <link href="https://sszx866.github.io/posts/Appium/" rel="alternate" type="text/html" title="Appium" />
+    <published>2021-03-23T00:00:00+08:00</published>
   
-    <updated>2019-08-08T14:10:00+08:00</updated>
+    <updated>2021-03-23T00:00:00+08:00</updated>
   
-    <id>/posts/write-a-new-post/</id>
-    <content src="/posts/write-a-new-post/" />
+    <id>https://sszx866.github.io/posts/Appium/</id>
+    <content src="https://sszx866.github.io/posts/Appium/" />
     <author>
-      <name>your_full_name</name>
+      <name>Weijia Li</name>
     </author>
 
   
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
     
   
 
@@ -179,19 +238,19 @@ Installing the The...
 
 
 
-      Naming and Path
+      Selenium
 
-Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts/ of the root directory. Please note that the EXTENSION must be one of md and markdown.
+一、获取adb包名和activity
 
-Front Matter
+在cmd中执行
 
-Basically, you need to fill the Front Matter as below at the top of the post:
+adb shell dumpsys activity recents | find "intent={"
 
----
-title: TITLE
-date: YYYY-MM-DD HH:MM:SS +/-TTTT
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [TAG]     # TAG names s...
+
+会显示如下，最近的 几个 activity 信息，
+
+intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=tv.danmaku.bili/.ui.splash.SplashActivity}
+intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000300cmp=com.huawei.android.launcher/.unihome.UniHome...
     </summary>
   
 
@@ -199,23 +258,19 @@ tags: [TAG]     # TAG names s...
 
   
   <entry>
-    <title>Text and Typography</title>
-    <link href="/posts/text-and-typography/" rel="alternate" type="text/html" title="Text and Typography" />
-    <published>2019-08-08T11:33:00+08:00</published>
+    <title>Scrapy</title>
+    <link href="https://sszx866.github.io/posts/Scrapy/" rel="alternate" type="text/html" title="Scrapy" />
+    <published>2021-03-13T00:00:00+08:00</published>
   
-    <updated>2019-08-08T11:33:00+08:00</updated>
+    <updated>2021-03-13T00:00:00+08:00</updated>
   
-    <id>/posts/text-and-typography/</id>
-    <content src="/posts/text-and-typography/" />
+    <id>https://sszx866.github.io/posts/Scrapy/</id>
+    <content src="https://sszx866.github.io/posts/Scrapy/" />
     <author>
-      <name>your_full_name</name>
+      <name>Weijia Li</name>
     </author>
 
   
-    
-    <category term="Blogging" />
-    
-    <category term="Demo" />
     
   
 
@@ -227,31 +282,47 @@ tags: [TAG]     # TAG names s...
 
 
 
-      This post is to show Markdown syntax rendering on Chirpy, you can also use it as an example of writing. Now, let’s start looking at text and typography.
+      Scrapy
 
-Titles
 
-H1 - heading
+  
+    创建工程
+  
 
-H2 - heading
 
-H3 - heading
-
-H4 - heading
+scrapy startproject &amp;lt;name&amp;gt;
 
 
 
-Paragraph
+  
+    创建爬虫
+  
 
-I wandered lonely as a cloud
 
-That floats on high o’er vales and hills,
+scrapy genspider &amp;lt;name&amp;gt; &amp;lt;domain&amp;gt;
 
-When all at once I saw a crowd,
 
-A host, of golden daffodils;
 
-Beside the lake, beneath the t...
+  
+    运行爬虫
+  
+
+
+scrapy crawl &amp;lt;spider&amp;gt;
+
+
+
+  
+    列出所有爬虫
+  
+
+
+scrapy list
+
+
+主要修改 settings.py name.py pipelines.py三个文件
+
+
     </summary>
   
 
