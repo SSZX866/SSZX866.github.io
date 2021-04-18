@@ -24,7 +24,8 @@
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Python" />
+<meta property="og:title" content="Python学习笔记" />
+<meta name="author" content="Weijia Li" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Python学习笔记" />
 <meta property="og:description" content="Python学习笔记" />
@@ -32,17 +33,18 @@
 <meta property="og:url" content="https://sszx866.github.io/posts/Python/" />
 <meta property="og:site_name" content="伸手摘星" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-13T00:00:00+08:00" />
+<meta property="article:published_time" content="2021-02-07T18:32:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Python" />
+<meta property="twitter:title" content="Python学习笔记" />
 <meta name="twitter:site" content="@twitter" />
+<meta name="twitter:creator" content="@Weijia Li" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"datePublished":"2021-04-13T00:00:00+08:00","headline":"Python","url":"https://sszx866.github.io/posts/Python/","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Python/"},"description":"Python学习笔记","@type":"BlogPosting","dateModified":"2021-04-13T00:00:00+08:00","@context":"https://schema.org"}</script>
+{"datePublished":"2021-02-07T18:32:00+08:00","headline":"Python学习笔记","url":"https://sszx866.github.io/posts/Python/","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Python/"},"author":{"@type":"Person","name":"Weijia Li"},"description":"Python学习笔记","@type":"BlogPosting","dateModified":"2021-02-07T18:32:00+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Python | 伸手摘星
+  <title>Python学习笔记 | 伸手摘星
   </title>
 
   <!--
@@ -450,7 +452,7 @@
       
 
         
-          <span>Python</span>
+          <span>Python学习笔记</span>
 
         
 
@@ -513,7 +515,7 @@
 
     <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
 
-      <h1 data-toc-skip>Python</h1>
+      <h1 data-toc-skip>Python学习笔记</h1>
 
       <div class="post-meta text-muted d-flex flex-column">
         <!-- Published date and author -->
@@ -534,7 +536,7 @@
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Tue, Apr 13, 2021, 12:00 AM +0800"
+    title="Sun, Feb  7, 2021,  6:32 PM +0800"
   
 
   
@@ -544,10 +546,10 @@
   
 
   
-    Apr 13
+    Feb  7
   
 
-  <i class="unloaded">2021-04-13T00:00:00+08:00</i>
+  <i class="unloaded">2021-02-07T18:32:00+08:00</i>
 
 </span>
 
@@ -671,12 +673,12 @@
 11
 </pre></td><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>            <span class="c1"># 计算平方数
 </span><span class="p">...</span>     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="p">...</span> 
+<span class="p">...</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>   <span class="c1"># 计算列表各个元素的平方
 </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>  <span class="c1"># 使用 lambda 匿名函数
 </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
- 
+
 <span class="c1"># 提供了两个列表，对相同位置的列表数据进行相加
 </span><span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
@@ -725,7 +727,7 @@
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="n">python3</span> <span class="n">test</span><span class="p">.</span><span class="n">py</span> 
+</pre></td><td class="rouge-code"><pre><span class="n">python3</span> <span class="n">test</span><span class="p">.</span><span class="n">py</span>
 <span class="n">请输入一个字符</span><span class="p">:</span> <span class="n">a</span>
 <span class="n">请输入一个ASCII码</span><span class="p">:</span> <span class="mi">101</span>
 <span class="n">a</span> <span class="n">的ASCII</span> <span class="n">码为</span> <span class="mi">97</span>
@@ -839,7 +841,7 @@
 7
 </pre></td><td class="rouge-code"><pre><span class="c1">#!/usr/bin/python3
 #coding=utf-8
-</span> 
+</span>
 <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Google'</span><span class="p">,</span> <span class="s">'Runoob'</span><span class="p">,</span> <span class="s">'Taobao'</span><span class="p">]</span>
 <span class="n">list_pop</span><span class="o">=</span><span class="n">list1</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">print</span> <span class="s">"删除的项为 :"</span><span class="p">,</span> <span class="n">list_pop</span>
@@ -880,10 +882,10 @@
 4
 5
 6
-</pre></td><td class="rouge-code"><pre><span class="nb">str</span> <span class="o">=</span> <span class="s">"00000003210Runoob01230000000"</span><span class="p">;</span> 
+</pre></td><td class="rouge-code"><pre><span class="nb">str</span> <span class="o">=</span> <span class="s">"00000003210Runoob01230000000"</span><span class="p">;</span>
 <span class="k">print</span> <span class="nb">str</span><span class="p">.</span><span class="n">strip</span><span class="p">(</span> <span class="s">'0'</span> <span class="p">);</span>  <span class="c1"># 去除首尾字符 0
-</span> 
- 
+</span>
+
 <span class="n">str2</span> <span class="o">=</span> <span class="s">"   Runoob      "</span><span class="p">;</span>   <span class="c1"># 去除首尾空格
 </span><span class="k">print</span> <span class="n">str2</span><span class="p">.</span><span class="n">strip</span><span class="p">();</span>
 </pre></td></tr></tbody></table></code></div></div>
@@ -953,10 +955,10 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
         <span class="bp">self</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
-        
+
     <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span> <span class="s">'a normal func.'</span>
-        
+
 <span class="n">obj</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
 <span class="k">print</span> <span class="n">A</span><span class="p">.</span><span class="n">__dict__</span>
 <span class="k">print</span> <span class="n">obj</span><span class="p">.</span><span class="n">__dict__</span>
@@ -988,13 +990,13 @@
 </pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">bar</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
-        <span class="k">print</span> <span class="p">(</span><span class="s">'foo'</span><span class="p">)</span> 
+        <span class="k">print</span> <span class="p">(</span><span class="s">'foo'</span><span class="p">)</span>
     <span class="o">@</span><span class="nb">classmethod</span>
     <span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
         <span class="k">print</span> <span class="p">(</span><span class="s">'func2'</span><span class="p">)</span>
         <span class="k">print</span> <span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">bar</span><span class="p">)</span>
         <span class="n">cls</span><span class="p">().</span><span class="n">func1</span><span class="p">()</span>   <span class="c1"># 调用 foo 方法
-</span> 
+</span>
 <span class="n">A</span><span class="p">.</span><span class="n">func2</span><span class="p">()</span>               <span class="c1"># 不需要实例化
 </span></pre></td></tr></tbody></table></code></div></div>
 
@@ -1015,8 +1017,23 @@
 
         <!-- categories -->
         
+        <div class="post-meta mb-3">
+          <i class="far fa-folder-open fa-fw mr-1"></i>
+          
+            <a href='/categories/code/'>Code</a>,
+            <a href='/categories/python/'>Python</a>
+        </div>
+        
 
         <!-- tags -->
+        
+        <div class="post-tags">
+          <i class="fa fa-tags fa-fw mr-1"></i>
+          
+          <a href="/tags/python/"
+            class="post-tag no-text-decoration" >Python</a>
+          
+          </div>
         
 
         <div class="post-tail-bottom
@@ -1041,19 +1058,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=Python - 伸手摘星&url=https://sszx866.github.io/posts/Python/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=Python学习笔记 - 伸手摘星&url=https://sszx866.github.io/posts/Python/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=Python - 伸手摘星&u=https://sszx866.github.io/posts/Python/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=Python学习笔记 - 伸手摘星&u=https://sszx866.github.io/posts/Python/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=Python - 伸手摘星&url=https://sszx866.github.io/posts/Python/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=Python学习笔记 - 伸手摘星&url=https://sszx866.github.io/posts/Python/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -1125,6 +1142,10 @@
     
     
     
+      
+        
+        
+
   
     
     
@@ -1144,170 +1165,10 @@
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1327,25 +1188,13 @@
 
       
         
-        <a class="post-tag" href="/tags/google-analytics/">google analytics</a>
+        <a class="post-tag" href="/tags/python/">Python</a>
       
         
-        <a class="post-tag" href="/tags/favicon/">favicon</a>
+        <a class="post-tag" href="/tags/technology/">Technology</a>
       
         
-        <a class="post-tag" href="/tags/getting-started/">getting started</a>
-      
-        
-        <a class="post-tag" href="/tags/pageviews/">pageviews</a>
-      
-        
-        <a class="post-tag" href="/tags/python/">python</a>
-      
-        
-        <a class="post-tag" href="/tags/typography/">typography</a>
-      
-        
-        <a class="post-tag" href="/tags/writing/">writing</a>
+        <a class="post-tag" href="/tags/tools/">Tools</a>
       
 
       </div>
@@ -1407,10 +1256,6 @@
   
 
   
-    
-  
-
-  
 
   
 
@@ -1464,97 +1309,6 @@
 
   
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
   
 
   
@@ -1592,41 +1346,6 @@
 
 
 
-  
-    
-    
-      
-      
-        
-        
-        
-      
-    
-  
-    
-    
-  
-    
-    
-      
-      
-        
-        
-        
-      
-    
-  
-    
-    
-      
-      
-        
-        
-        
-          
-
-
-
 
 
   <div id="related-posts" class="mt-5 mb-2 mb-sm-4">
@@ -1637,7 +1356,7 @@
       
       
       <div class="card">
-        <a href="/posts/LeetCode/">
+        <a href="/posts/Scrapy/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1658,14 +1377,14 @@
   
 
   
-    Apr 14
+    Mar 13
   
 
-  <i class="unloaded">2021-04-14T00:00:00+08:00</i>
+  <i class="unloaded">2021-03-13T18:32:00+08:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Leetcode</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Linux</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1674,101 +1393,42 @@
 
 
 
-                LeetCode
+                Scrapy
 
-一、Note
-
-1.动态规划
-
-
-  题目特点
-
-
-1.计数
-
-​	-有多少种方式走到右下角
-
-​	-有多少种方式选出k个数使得和是Sum
-
-2.求最大值最小值
-
-​	-从左上角走到右下角路径的最大数字和
-
-​	-最长上升子序列长度
-
-3.求存在性
-
-​	-取石子游戏，先手是否必胜
-
-​	-能不能选出k个数使得和是sum
-
-
-  计算步骤
-
-
-1.确定状态
-
-
-  最后一...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
-      
-      
-      <div class="card">
-        <a href="/posts/Selenium/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago small"
-  
 
   
-   >
-
-  
+    创建工程
   
 
+
+1
+scrapy startproject &lt;name&gt;
+
+
+
   
-    Mar 25
+    创建爬虫
   
 
-  <i class="unloaded">2021-03-25T00:00:00+08:00</i>
 
-</span>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Selenium</h3>
-            <div class="text-muted small">
-              <p>
-                
+1
+scrapy genspider &lt;name&gt; &lt;domain&gt;
 
 
 
+  
+    运行爬虫
+  
 
 
-                Selenium
+1
+scrapy crawl &lt;spider&gt;
 
-一、CSS Selector
 
-‘&gt;’ 和 ‘空格’    ‘ &gt;’ 表示子节点，’空格’ 表示后代
 
-’#’表示id ‘.’表示css ‘,’ 组选择器可选取多个元素且优先级最低
-
-:nth-child(x) 选取第x个子节点
-
-:nth-last-child(x) 选取倒数第x个子节点
-
-span:nth-of-type(1) 选取第一个标签为span的节...
+  
+    列出所有爬虫
+  ...
               </p>
             </div>
           </div>
@@ -1802,7 +1462,7 @@ span:nth-of-type(1) 选取第一个标签为span的节...
     Mar 23
   
 
-  <i class="unloaded">2021-03-23T00:00:00+08:00</i>
+  <i class="unloaded">2021-03-23T16:22:00+08:00</i>
 
 </span>
 
@@ -1821,12 +1481,76 @@ span:nth-of-type(1) 选取第一个标签为span的节...
 
 在cmd中执行
 
+1
 adb shell dumpsys activity recents | find "intent={"
 
 
 会显示如下，最近的 几个 activity 信息，
 
-intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
+1
+2
+3
+4
+intent={act=android.intent.action.MAIN cat=[android.intent.categor...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/Selenium/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Mar 25
+  
+
+  <i class="unloaded">2021-03-25T10:16:00+08:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Selenium</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Selenium
+
+一、CSS Selector
+
+‘&gt;’ 和 ‘空格’    ‘ &gt;’ 表示子节点，’空格’ 表示后代
+
+’#’表示id ‘.’表示css ‘,’ 组选择器可选取多个元素且优先级最低
+
+:nth-child(x) 选取第x个子节点
+
+:nth-last-child(x) 选取倒数第x个子节点
+
+span:nth-of-type(1) 选取第一个标签为span的节...
               </p>
             </div>
           </div>
@@ -1844,16 +1568,16 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <a href="/posts/Selenium/" class="btn btn-outline-primary"
+  <a href="/posts/Mysql/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>Selenium</p>
+    <p>Mysql</p>
   </a>
   
 
   
-  <a href="/posts/LeetCode/" class="btn btn-outline-primary"
+  <a href="/posts/Linux/" class="btn btn-outline-primary"
     prompt="Newer">
-    <p>Leetcode</p>
+    <p>Linux</p>
   </a>
   
 
@@ -1935,6 +1659,10 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
     
     
     
+      
+        
+        
+
   
     
     
@@ -1954,40 +1682,6 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2002,155 +1696,17 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
 
 
       
         
-        <a class="post-tag" href="/tags/google-analytics/">google analytics</a>
+        <a class="post-tag" href="/tags/python/">Python</a>
       
         
-        <a class="post-tag" href="/tags/favicon/">favicon</a>
+        <a class="post-tag" href="/tags/technology/">Technology</a>
       
         
-        <a class="post-tag" href="/tags/getting-started/">getting started</a>
-      
-        
-        <a class="post-tag" href="/tags/pageviews/">pageviews</a>
-      
-        
-        <a class="post-tag" href="/tags/python/">python</a>
-      
-        
-        <a class="post-tag" href="/tags/typography/">typography</a>
-      
-        
-        <a class="post-tag" href="/tags/writing/">writing</a>
+        <a class="post-tag" href="/tags/tools/">Tools</a>
       
 
     </div>

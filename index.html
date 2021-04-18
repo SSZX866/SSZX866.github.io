@@ -31,7 +31,6 @@
 <link rel="canonical" href="https://sszx866.github.io/" />
 <meta property="og:url" content="https://sszx866.github.io/" />
 <meta property="og:site_name" content="伸手摘星" />
-<link rel="next" href="https://sszx866.github.io/page2" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="伸手摘星" />
 <meta name="twitter:site" content="@twitter" />
@@ -509,7 +508,7 @@
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/getting-started/">Getting Started</a>
+      <a href="/posts/heapq/">Python-heapq</a>
     </h1>
 
     <div class="post-content">
@@ -520,16 +519,19 @@
 
 
 
-        Prerequisites
+        Python-heapq
 
-Follow the Jekyll Docs to complete the installation of Ruby, RubyGems, Jekyll and Bundler.
+一、堆(heap)
 
-Installation
+二叉树堆是一棵完全二叉树，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）
 
-There are two ways to get the theme:
+最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。
 
+最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。
 
-  Install from RubyGems - Easy to upd...
+我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。
+
+堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所...
       </p>
     </div>
 
@@ -551,7 +553,7 @@ There are two ways to get the theme:
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Fri, Aug  9, 2019,  8:55 PM +0800"
+    title="Sun, Apr 18, 2021,  7:55 PM +0800"
   
 
   
@@ -561,10 +563,10 @@ There are two ways to get the theme:
   
 
   
-    Aug  9, 2019
+    Apr 18
   
 
-  <i class="unloaded">2019-08-09T20:55:00+08:00</i>
+  <i class="unloaded">2021-04-18T19:55:00+08:00</i>
 
 </span>
 
@@ -585,231 +587,7 @@ There are two ways to get the theme:
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="766 words">4 min</span>
-
-
-        <!-- page views -->
-        
-      </div>
-
-      
-      <div class="pin">
-        <i class="fas fa-thumbtack fa-fw"></i>
-        <span>Pinned</span>
-      </div>
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/LeetCode/">Leetcode</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        LeetCode
-
-一、Note
-
-1.动态规划
-
-
-  题目特点
-
-
-1.计数
-
-​	-有多少种方式走到右下角
-
-​	-有多少种方式选出k个数使得和是Sum
-
-2.求最大值最小值
-
-​	-从左上角走到右下角路径的最大数字和
-
-​	-最长上升子序列长度
-
-3.求存在性
-
-​	-取石子游戏，先手是否必胜
-
-​	-能不能选出k个数使得和是sum
-
-
-  计算步骤
-
-
-1.确定状态
-
-
-  最后一...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex justify-content-between">
-
-      <div>
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago "
-  
-    data-toggle="tooltip"
-    data-placement="bottom"
-    title="Wed, Apr 14, 2021, 12:00 AM +0800"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Apr 14
-  
-
-  <i class="unloaded">2021-04-14T00:00:00+08:00</i>
-
-</span>
-
-
-        <!-- time to read -->
-        <i class="far fa-clock fa-fw"></i>
-        <!--
-  Calculate the post's reading time, and display the word count in tooltip
- -->
-
-
-<!-- words per minute  -->
-
-
-
-
-
-
-
-<!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="3030 words">16 min</span>
-
-
-        <!-- page views -->
-        
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/Python/">Python</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        Python学习笔记
-
-1、内置函数（Built-in Functions）
-
-set()
-
-set() 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
-
-参数说明：
-
-
-  iterable – 可迭代对象对象；
-
-
-&gt;&gt;&gt;x = set('runoob')
-&gt;&gt;&gt; y = set('google')
-&gt;...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex justify-content-between">
-
-      <div>
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago "
-  
-    data-toggle="tooltip"
-    data-placement="bottom"
-    title="Tue, Apr 13, 2021, 12:00 AM +0800"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Apr 13
-  
-
-  <i class="unloaded">2021-04-13T00:00:00+08:00</i>
-
-</span>
-
-
-        <!-- time to read -->
-        <i class="far fa-clock fa-fw"></i>
-        <!--
-  Calculate the post's reading time, and display the word count in tooltip
- -->
-
-
-<!-- words per minute  -->
-
-
-
-
-
-
-
-<!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1491 words">8 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="586 words">3 min</span>
 
 
         <!-- page views -->
@@ -871,7 +649,7 @@ span:nth-of-type(1) 选取第一个标签为span的节...
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Thu, Mar 25, 2021, 12:00 AM +0800"
+    title="Thu, Mar 25, 2021, 10:16 AM +0800"
   
 
   
@@ -884,7 +662,7 @@ span:nth-of-type(1) 选取第一个标签为span的节...
     Mar 25
   
 
-  <i class="unloaded">2021-03-25T00:00:00+08:00</i>
+  <i class="unloaded">2021-03-25T10:16:00+08:00</i>
 
 </span>
 
@@ -966,7 +744,7 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Tue, Mar 23, 2021, 12:00 AM +0800"
+    title="Tue, Mar 23, 2021,  4:22 PM +0800"
   
 
   
@@ -979,7 +757,7 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
     Mar 23
   
 
-  <i class="unloaded">2021-03-23T00:00:00+08:00</i>
+  <i class="unloaded">2021-03-23T16:22:00+08:00</i>
 
 </span>
 
@@ -1017,7 +795,7 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/Scrapy/">Scrapy</a>
+      <a href="/posts/Scrapy/">Linux</a>
     </h1>
 
     <div class="post-content">
@@ -1085,7 +863,7 @@ scr...
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Sat, Mar 13, 2021, 12:00 AM +0800"
+    title="Sat, Mar 13, 2021,  6:32 PM +0800"
   
 
   
@@ -1098,7 +876,7 @@ scr...
     Mar 13
   
 
-  <i class="unloaded">2021-03-13T00:00:00+08:00</i>
+  <i class="unloaded">2021-03-13T18:32:00+08:00</i>
 
 </span>
 
@@ -1183,7 +961,7 @@ Linux终端通过Shell程序来接收用户输入的命令，并且执行命令�
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Sat, Feb 13, 2021, 12:00 AM +0800"
+    title="Sat, Feb 13, 2021,  6:32 PM +0800"
   
 
   
@@ -1196,7 +974,7 @@ Linux终端通过Shell程序来接收用户输入的命令，并且执行命令�
     Feb 13
   
 
-  <i class="unloaded">2021-02-13T00:00:00+08:00</i>
+  <i class="unloaded">2021-02-13T18:32:00+08:00</i>
 
 </span>
 
@@ -1283,7 +1061,7 @@ set() 函数创建一个无序不重复元素集，可进行关系测试，删�
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Mon, Feb  8, 2021,  7:32 AM +0800"
+    title="Sun, Feb  7, 2021,  6:32 PM +0800"
   
 
   
@@ -1293,10 +1071,10 @@ set() 函数创建一个无序不重复元素集，可进行关系测试，删�
   
 
   
-    Feb  8
+    Feb  7
   
 
-  <i class="unloaded">2021-02-08T07:32:00+08:00</i>
+  <i class="unloaded">2021-02-07T18:32:00+08:00</i>
 
 </span>
 
@@ -1318,90 +1096,6 @@ set() 函数创建一个无序不重复元素集，可进行关系测试，删�
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1491 words">8 min</span>
-
-
-        <!-- page views -->
-        
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/enable-google-pv/">Enable Google Page Views</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        This post is to enable Page Views on the Chirpy theme based blog that you just built. This requires technical knowledge and it’s recommended to keep the google_analytics.pv.* empty unless you have ...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex justify-content-between">
-
-      <div>
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago "
-  
-    data-toggle="tooltip"
-    data-placement="bottom"
-    title="Mon, Jan  4, 2021,  7:32 AM +0800"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Jan  4
-  
-
-  <i class="unloaded">2021-01-04T07:32:00+08:00</i>
-
-</span>
-
-
-        <!-- time to read -->
-        <i class="far fa-clock fa-fw"></i>
-        <!--
-  Calculate the post's reading time, and display the word count in tooltip
- -->
-
-
-<!-- words per minute  -->
-
-
-
-
-
-
-
-<!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1333 words">7 min</span>
 
 
         <!-- page views -->
@@ -1453,7 +1147,6 @@ mysql -u root -p
 
 #####
 
-
       </p>
     </div>
 
@@ -1475,7 +1168,7 @@ mysql -u root -p
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Sat, Dec 19, 2020, 12:00 AM +0800"
+    title="Sat, Dec 19, 2020,  9:27 PM +0800"
   
 
   
@@ -1488,7 +1181,7 @@ mysql -u root -p
     Dec 19, 2020
   
 
-  <i class="unloaded">2020-12-19T00:00:00+08:00</i>
+  <i class="unloaded">2020-12-19T21:27:00+08:00</i>
 
 </span>
 
@@ -1510,6 +1203,117 @@ mysql -u root -p
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="17 words">1 min</span>
+
+
+        <!-- page views -->
+        
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/Typora/">Markdown快速入门</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        Markdown快速入门 (typora)
+
+1、快捷键
+
+显示大纲：Ctrl+Shift+1
+
+显示代码：Ctrl+/
+
+2、代码块
+
+import numpy
+print("Hello world")
+
+
+java -jar blog start
+
+
+3、标题
+
+一级标题 Ctrl+1
+
+二级标题 Ctrl+2
+
+三级标题 Ctrl+3
+
+四级标题 Ctrl+4
+
+五级标题 Ctrl+5...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex justify-content-between">
+
+      <div>
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago "
+  
+    data-toggle="tooltip"
+    data-placement="bottom"
+    title="Sat, Sep 26, 2020,  1:27 PM +0800"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Sep 26, 2020
+  
+
+  <i class="unloaded">2020-09-26T13:27:00+08:00</i>
+
+</span>
+
+
+        <!-- time to read -->
+        <i class="far fa-clock fa-fw"></i>
+        <!--
+  Calculate the post's reading time, and display the word count in tooltip
+ -->
+
+
+<!-- words per minute  -->
+
+
+
+
+
+
+
+<!-- return element -->
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="145 words">1 min</span>
 
 
         <!-- page views -->
@@ -1563,27 +1367,10 @@ mysql -u root -p
 
   
 
-    
-    
-    
-    
-    
-
-    
-
-    
-      <!-- show number -->
-      <li class="page-item ">
-        <a class="page-link btn-box-shadow" href="/page2/">2</a>
-      </li>
-    
-
-  
-
   <!-- right arrow -->
   
-  <li class="page-item ">
-    <a class="page-link btn-box-shadow" href="/page2" aria-label="next-page">
+  <li class="page-item disabled">
+    <a class="page-link btn-box-shadow" href="#" aria-label="next-page">
       <i class="fas fa-angle-right"></i>
     </a>
   </li>
@@ -1642,6 +1429,10 @@ mysql -u root -p
     
     
     
+      
+        
+        
+
   
     
     
@@ -1661,170 +1452,10 @@ mysql -u root -p
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1844,25 +1475,13 @@ mysql -u root -p
 
       
         
-        <a class="post-tag" href="/tags/google-analytics/">google analytics</a>
+        <a class="post-tag" href="/tags/python/">Python</a>
       
         
-        <a class="post-tag" href="/tags/favicon/">favicon</a>
+        <a class="post-tag" href="/tags/technology/">Technology</a>
       
         
-        <a class="post-tag" href="/tags/getting-started/">getting started</a>
-      
-        
-        <a class="post-tag" href="/tags/pageviews/">pageviews</a>
-      
-        
-        <a class="post-tag" href="/tags/python/">python</a>
-      
-        
-        <a class="post-tag" href="/tags/typography/">typography</a>
-      
-        
-        <a class="post-tag" href="/tags/writing/">writing</a>
+        <a class="post-tag" href="/tags/tools/">Tools</a>
       
 
       </div>
@@ -1946,6 +1565,10 @@ mysql -u root -p
     
     
     
+      
+        
+        
+
   
     
     
@@ -1965,40 +1588,6 @@ mysql -u root -p
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2013,155 +1602,17 @@ mysql -u root -p
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
 
 
       
         
-        <a class="post-tag" href="/tags/google-analytics/">google analytics</a>
+        <a class="post-tag" href="/tags/python/">Python</a>
       
         
-        <a class="post-tag" href="/tags/favicon/">favicon</a>
+        <a class="post-tag" href="/tags/technology/">Technology</a>
       
         
-        <a class="post-tag" href="/tags/getting-started/">getting started</a>
-      
-        
-        <a class="post-tag" href="/tags/pageviews/">pageviews</a>
-      
-        
-        <a class="post-tag" href="/tags/python/">python</a>
-      
-        
-        <a class="post-tag" href="/tags/typography/">typography</a>
-      
-        
-        <a class="post-tag" href="/tags/writing/">writing</a>
+        <a class="post-tag" href="/tags/tools/">Tools</a>
       
 
     </div>

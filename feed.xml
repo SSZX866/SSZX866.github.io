@@ -4,7 +4,7 @@
   <id>https://sszx866.github.io/</id>
   <title>伸手摘星</title>
   <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
-  <updated>2021-04-14T15:14:22+08:00</updated>
+  <updated>2021-04-18T21:40:50+08:00</updated>
   <author>
     <name>Weijia Li</name>
     <uri>https://sszx866.github.io/</uri>
@@ -20,19 +20,23 @@
 
   
   <entry>
-    <title>Leetcode</title>
-    <link href="https://sszx866.github.io/posts/LeetCode/" rel="alternate" type="text/html" title="Leetcode" />
-    <published>2021-04-14T00:00:00+08:00</published>
+    <title>Python-heapq</title>
+    <link href="https://sszx866.github.io/posts/heapq/" rel="alternate" type="text/html" title="Python-heapq" />
+    <published>2021-04-18T19:55:00+08:00</published>
   
-    <updated>2021-04-14T00:00:00+08:00</updated>
+    <updated>2021-04-18T19:55:00+08:00</updated>
   
-    <id>https://sszx866.github.io/posts/LeetCode/</id>
-    <content src="https://sszx866.github.io/posts/LeetCode/" />
+    <id>https://sszx866.github.io/posts/heapq/</id>
+    <content src="https://sszx866.github.io/posts/heapq/" />
     <author>
       <name>Weijia Li</name>
     </author>
 
   
+    
+    <category term="Code" />
+    
+    <category term="Python" />
     
   
 
@@ -44,115 +48,31 @@
 
 
 
-      LeetCode
+      Python-heapq
 
-一、Note
+一、堆(heap)
 
-1.动态规划
+二叉树堆是一棵完全二叉树，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）
 
+最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。
 
-  题目特点
+最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。
 
+我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。
 
-1.计数
+堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所有子节点的值。
 
-​	-有多少种方式走到右下角
-
-​	-有多少种方式选出k个数使得和是Sum
-
-2.求最大值最小值
-
-​	-从左上角走到右下角路径的最大数字和
-
-​	-最长上升子序列长度
-
-3.求存在性
-
-​	-取石子游戏，先手是否必胜
-
-​	-能不能选出k个数使得和是sum
-
-
-  计算步骤
-
-
-1.确定状态
-
-
-  最后一步（最优策略中使用的最后一枚硬币ak）
-  化成子问题（最少的硬币拼出更小的面值27-ak）
-
-
-2.转移方程（列出递归方程）
-
-
-  f[x]=min{f[x-2]+1,f[x-5]+1,f[x-7]+1}
-
-
-3.确定初始条件和边界情况
-
-若初始值用转移方程算不出，则需手动定义初始条件F[0]
-
-4.计算顺序
-
-多为从小到大F[0],F[1],F[2],…
-
-二维多为从上到下，从左到右
-
-目的...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Python</title>
-    <link href="https://sszx866.github.io/posts/Python/" rel="alternate" type="text/html" title="Python" />
-    <published>2021-04-13T00:00:00+08:00</published>
-  
-    <updated>2021-04-13T00:00:00+08:00</updated>
-  
-    <id>https://sszx866.github.io/posts/Python/</id>
-    <content src="https://sszx866.github.io/posts/Python/" />
-    <author>
-      <name>Weijia Li</name>
-    </author>
-
-  
-    
-  
-
-  
-    <summary>
-      
+整个最小堆的最小元素总是位于二叉树的根节点.
 
 
 
+二叉堆可以很容易用数组列表来表示，因为一棵高度为h的完全二叉树有2^h到2^(h+1)-1个节点，这样存放一个二叉堆就不会太浪费空间，而且一旦知道高度，就可以知道节点数的范围。
 
+python的heapq模块提供了对堆的支持。 heapq堆数据结构最重要的特征是heap[0]永远是最小的元素
 
-      Python学习笔记
+二、常用方法
 
-1、内置函数（Built-in Functions）
-
-set()
-
-set() 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
-
-参数说明：
-
-
-  iterable – 可迭代对象对象；
-
-
-&amp;gt;&amp;gt;&amp;gt;x = set('runoob')
-&amp;gt;&amp;gt;&amp;gt; y = set('google')
-&amp;gt;&amp;gt;&amp;gt; x, y
-(set(['b', 'r', 'u', 'o', 'n']), set(['e', 'o', 'g', 'l']))   # 重复的被删除
-({'n', 'u', 'o', 'b', 'r'}, {'e', 'l', 'g', 'o'}) #python3.7.9显示结果
-&amp;gt;&amp;gt;&amp;gt; x &amp;amp; y         # 交集
-set(['o'])
-&amp;...
+heappush(...
     </summary>
   
 
@@ -162,9 +82,9 @@ set(['o'])
   <entry>
     <title>Selenium</title>
     <link href="https://sszx866.github.io/posts/Selenium/" rel="alternate" type="text/html" title="Selenium" />
-    <published>2021-03-25T00:00:00+08:00</published>
+    <published>2021-03-25T10:16:00+08:00</published>
   
-    <updated>2021-03-25T00:00:00+08:00</updated>
+    <updated>2021-03-25T10:16:00+08:00</updated>
   
     <id>https://sszx866.github.io/posts/Selenium/</id>
     <content src="https://sszx866.github.io/posts/Selenium/" />
@@ -173,6 +93,10 @@ set(['o'])
     </author>
 
   
+    
+    <category term="Code" />
+    
+    <category term="Python" />
     
   
 
@@ -216,9 +140,9 @@ h3 ~ span 选取所有在h3后所有的span节点（...
   <entry>
     <title>Appium</title>
     <link href="https://sszx866.github.io/posts/Appium/" rel="alternate" type="text/html" title="Appium" />
-    <published>2021-03-23T00:00:00+08:00</published>
+    <published>2021-03-23T16:22:00+08:00</published>
   
-    <updated>2021-03-23T00:00:00+08:00</updated>
+    <updated>2021-03-23T16:22:00+08:00</updated>
   
     <id>https://sszx866.github.io/posts/Appium/</id>
     <content src="https://sszx866.github.io/posts/Appium/" />
@@ -227,6 +151,10 @@ h3 ~ span 选取所有在h3后所有的span节点（...
     </author>
 
   
+    
+    <category term="Code" />
+    
+    <category term="Python" />
     
   
 
@@ -258,11 +186,11 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x
 
   
   <entry>
-    <title>Scrapy</title>
-    <link href="https://sszx866.github.io/posts/Scrapy/" rel="alternate" type="text/html" title="Scrapy" />
-    <published>2021-03-13T00:00:00+08:00</published>
+    <title>Linux</title>
+    <link href="https://sszx866.github.io/posts/Scrapy/" rel="alternate" type="text/html" title="Linux" />
+    <published>2021-03-13T18:32:00+08:00</published>
   
-    <updated>2021-03-13T00:00:00+08:00</updated>
+    <updated>2021-03-13T18:32:00+08:00</updated>
   
     <id>https://sszx866.github.io/posts/Scrapy/</id>
     <content src="https://sszx866.github.io/posts/Scrapy/" />
@@ -271,6 +199,10 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x
     </author>
 
   
+    
+    <category term="Code" />
+    
+    <category term="Python" />
     
   
 
@@ -322,7 +254,63 @@ scrapy list
 
 主要修改 settings.py name.py pipelines.py三个文件
 
+    </summary>
+  
 
+  </entry>
+
+  
+  <entry>
+    <title>Linux</title>
+    <link href="https://sszx866.github.io/posts/Linux/" rel="alternate" type="text/html" title="Linux" />
+    <published>2021-02-13T18:32:00+08:00</published>
+  
+    <updated>2021-02-13T18:32:00+08:00</updated>
+  
+    <id>https://sszx866.github.io/posts/Linux/</id>
+    <content src="https://sszx866.github.io/posts/Linux/" />
+    <author>
+      <name>Weijia Li</name>
+    </author>
+
+  
+    
+    <category term="Technology" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Linux
+
+1.进程的前台、后台转换
+
+点击这里，看视频讲解，学习下面内容
+
+Linux终端通过Shell程序来接收用户输入的命令，并且执行命令。
+
+我们在Shell里正在执行的，和用户进行人机交互的进程叫 前台进程 (foreground process)
+
+前台进程可以接收键盘输入并将结果显示在显示器上。
+
+用户敲入什么命令，shell就会启动对应的程序，运行在 前台 。
+
+比如，大家可以用vi 编写一个 下面的Python程序到 Linux主机上，代码文件名可以为t1.py
+
+while True:    
+    info = raw_input("please input something:")
+    print("you input:%s\n\n" % info)
+
+
+然后使用命令 python t1.py 运行。
+
+可以发现及时这个 python 程序变成了前台进...
     </summary>
   
 
