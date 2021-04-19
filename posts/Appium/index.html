@@ -40,7 +40,7 @@
 <meta name="twitter:creator" content="@Weijia Li" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"datePublished":"2021-03-23T16:22:00+08:00","headline":"Appium","url":"https://sszx866.github.io/posts/Appium/","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Appium/"},"author":{"@type":"Person","name":"Weijia Li"},"description":"Selenium 一、获取adb包名和activity 在cmd中执行 1 adb shell dumpsys activity recents | find &quot;intent={&quot; 会显示如下，最近的 几个 activity 信息， 1 2 3 4 intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=tv.danmaku.bili/.ui.splash.SplashActivity} intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000300cmp=com.huawei.android.launcher/.unihome.UniHomeLauncher} intent={flg=0x10804000 cmp=com.android.systemui/.recents.RecentsActivity bnds=[48,1378][10322746]} intent={flg=0x10000000 cmp=com.tencent.mm/.ui.LauncherUI} 其中第一行就是当前的应用，我们特别关注最后 1 cmp=tv.danmaku.bili/.ui.splash.SplashActivity 应用的package名称就是 tv.danmaku.bili 应用的启动Activity就是 .ui.splash.SplashActivity 如果已经拥有app安装包，如测试人员测试刚刚编写的app，在命令行窗口执行 1 aapt.exe dump badging d:\\apk\\bili.apk | find &quot;package: name=&quot; 表示执行adb目录下的aapt文件（在Androidsdk中），app路径是d:\\tools\\apk\\bili.apk 输出信息中，就有应用的package名称 1 package: name=&#39;tv.danmaku.bili&#39; versionCode=&#39;5531000&#39; versionName=&#39;5.53.1&#39; platformBuildVersionName=&#39;5.53.1&#39; compileSdkVersion=&#39;28&#39; compileSdkVersionCodename=&#39;9&#39; 在命令行窗口执行 1 aapt.exe dump badging d:\\apk\\bili.apk | find &quot;launchable-activity&quot; 输出信息中，就有应用的启动Activity 1 launchable-activity: name=&#39;tv.danmaku.bili.ui.splash.SplashActivity&#39; label=&#39;&#39; icon=&#39;&#39; 二、界面元素查看工具 视频讲解 做 Selenium Web 自动化的时候，要找到元素，我们是通过浏览器的开发者工具栏来查看元素的特性，根据这些特性（属性和位置），来定位元素 Appium 要自动化手机应用，同样需要工具查看界面元素的特征。 常用的查看工具是： Android Sdk包中的 uiautomateviewer 和 Appium Desktop 中的 Appium Inspector uiautomateviewer 安卓查看APP界面元素，最常用的就是 Android SDK 中的工具 uiautomateviewer ，它在SDK目录目录 的 tools\\bin 目录中 和Selenium一样，我们要定位选择元素，也是根据元素的特征，包括 元素的属性 元素的相对位置（相对父元素、兄弟元素等） 具体细节，参考视频里面的讲解。 Appium Inspector Appium Desktop 中的 Appium Inspector 也可以查看元素。 它的一个优点是可以直接验证 选择表达式是否能定位到元素 三、定位元素的方法 视频讲解 根据ID 在Selenium Web自动化教程里，我们说过，如果能根据ID选择定位元素，最好根据ID，因为通常来说ID是唯一的，所以根据ID选择 效率高。 在安卓应用自动化的时候，同样可以根据ID查找。 但是这个ID ，是安卓应用元素的 resource-id 属性 使用如下代码 1 driver.find_element_by_id(&#39;expand_search&#39;) 根据CLASS NAME 安卓界面元素的 class属性 其实就是根据元素的类型，类似web里面的tagname， 所以通常不是唯一的。 通常，我们根据class 属性来选择元素， 是要选择多个而不是一个。 当然如果你确定 要查找的 界面元素的类型 在当前界面中只有一个，就可以根据class 来唯一选择。 使用如下代码 1 driver.find_elements_by_class_name(&#39;android.widget.TextView&#39;) 根据ACCESSIBILITY ID 元素的 content-desc 属性是用来描述该元素的作用的。 如果要查询的界面元素有 content-desc属性，我们可以通过它来定位选择元素。 使用如下代码 1 driver.find_element_by_accessibility_id(&#39;找人&#39;) Xpath Appium 也支持通过 Xpath选择元素。 但是其可靠性和性能不如 Selenium Web自动化。因为Web自动化对Xpath的支持是由浏览器实现的，而Appium Xpath的支持是 Appium Server实现的。 毕竟，浏览器产品的成熟度比Appium要高很多。 当然，Xpath是标准语法，所以这里表达式的语法规则和 以前学习的Selenium里面Xpath的语法是一样的，比如 1 driver.find_element_by_xpath(&#39;//ele1/ele2[@attr=&quot;value&quot;]&#39;) 注意： selenium自动化中， xpath表达式中每个节点名是html的tagname。 但是在appium中， xpath表达式中 每个节点名 是元素的class属性值。 比如：要选择所有的文本节点，就使用如下代码 1 driver.find_element_by_xpath(&#39;//android.widget.TextView&#39;) 安卓 UIAutomator 视频讲解 根据id，classname， accessibilityid，xpath，这些方法选择元素，其实底层都是利用了安卓 uiautomator框架的API功能实现的。 参考 这里的谷歌安卓官方文档介绍： https://developer.android.google.cn/training/testing/ui-automator 也就是说，程序的这些定位请求，被Appium server转发给手机自动化代理程序，就转化为为uiautomator里面相应的定位函数调用。 其实，我们的自动化程序，可以直接告诉 手机上的自动化代理程序，让它 调用UI Automator API的java代码，实现最为直接的自动化控制。 主要是通过 UiSelector 这个类里面的方法实现元素定位的，比如 1 2 3 code = &#39;new UiSelector().text(&quot;热门&quot;).className(&quot;android.widget.TextView&quot;)&#39; ele = driver.find_element_by_android_uiautomator(code) ele.click() 就是通过 text 属性 和 className的属性 两个条件 来定位元素。 UiSelector里面有些元素选择的方法 可以解决 前面解决不了的问题。 比如 text 方法 可以根据元素的文本属性查找元素 textContains 根据文本包含什么字符串 textStartsWith 根据文本以什么字符串开头 textmartch 方法 可以使用正则表达式 选择一些元素，如下 1 code = &#39;new UiSelector().textMatches(&quot;^我的.*&quot;)&#39; UiSelector 的 instance 和 index 也可以用来定位元素，都是从0开始计数， 他们的区别： instance是匹配的结果所有元素里面 的第几个元素 index则是其父元素的几个节点，类似xpath 里面的*[n] UiSelector 的 childSelector 可以选择后代元素，比如 1 2 3 code = &#39;new UiSelector().resourceId(&quot;tv.danmaku.bili:id/recycler_view&quot;).childSelector(new UiSelector().className(&quot;android.widget.TextView&quot;))&#39; ele = driver.find_element_by_android_uiautomator(code) 注意： childSelector后面的引号要框住整个 子 uiSelector 的表达式 目前有个bug：只能找到符合条件的第一个元素，参考appium 在github上的 issues： https://github.com/appium/java-client/issues/150","@type":"BlogPosting","dateModified":"2021-03-23T16:22:00+08:00","@context":"https://schema.org"}</script>
+{"datePublished":"2021-03-23T16:22:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Appium/"},"url":"https://sszx866.github.io/posts/Appium/","author":{"@type":"Person","name":"Weijia Li"},"description":"Selenium 一、获取adb包名和activity 在cmd中执行 1 adb shell dumpsys activity recents | find &quot;intent={&quot; 会显示如下，最近的 几个 activity 信息， 1 2 3 4 intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=tv.danmaku.bili/.ui.splash.SplashActivity} intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000300cmp=com.huawei.android.launcher/.unihome.UniHomeLauncher} intent={flg=0x10804000 cmp=com.android.systemui/.recents.RecentsActivity bnds=[48,1378][10322746]} intent={flg=0x10000000 cmp=com.tencent.mm/.ui.LauncherUI} 其中第一行就是当前的应用，我们特别关注最后 1 cmp=tv.danmaku.bili/.ui.splash.SplashActivity 应用的package名称就是 tv.danmaku.bili 应用的启动Activity就是 .ui.splash.SplashActivity 如果已经拥有app安装包，如测试人员测试刚刚编写的app，在命令行窗口执行 1 aapt.exe dump badging d:\\apk\\bili.apk | find &quot;package: name=&quot; 表示执行adb目录下的aapt文件（在Androidsdk中），app路径是d:\\tools\\apk\\bili.apk 输出信息中，就有应用的package名称 1 package: name=&#39;tv.danmaku.bili&#39; versionCode=&#39;5531000&#39; versionName=&#39;5.53.1&#39; platformBuildVersionName=&#39;5.53.1&#39; compileSdkVersion=&#39;28&#39; compileSdkVersionCodename=&#39;9&#39; 在命令行窗口执行 1 aapt.exe dump badging d:\\apk\\bili.apk | find &quot;launchable-activity&quot; 输出信息中，就有应用的启动Activity 1 launchable-activity: name=&#39;tv.danmaku.bili.ui.splash.SplashActivity&#39; label=&#39;&#39; icon=&#39;&#39; 二、界面元素查看工具 视频讲解 做 Selenium Web 自动化的时候，要找到元素，我们是通过浏览器的开发者工具栏来查看元素的特性，根据这些特性（属性和位置），来定位元素 Appium 要自动化手机应用，同样需要工具查看界面元素的特征。 常用的查看工具是： Android Sdk包中的 uiautomateviewer 和 Appium Desktop 中的 Appium Inspector uiautomateviewer 安卓查看APP界面元素，最常用的就是 Android SDK 中的工具 uiautomateviewer ，它在SDK目录目录 的 tools\\bin 目录中 和Selenium一样，我们要定位选择元素，也是根据元素的特征，包括 元素的属性 元素的相对位置（相对父元素、兄弟元素等） 具体细节，参考视频里面的讲解。 Appium Inspector Appium Desktop 中的 Appium Inspector 也可以查看元素。 它的一个优点是可以直接验证 选择表达式是否能定位到元素 三、定位元素的方法 视频讲解 根据ID 在Selenium Web自动化教程里，我们说过，如果能根据ID选择定位元素，最好根据ID，因为通常来说ID是唯一的，所以根据ID选择 效率高。 在安卓应用自动化的时候，同样可以根据ID查找。 但是这个ID ，是安卓应用元素的 resource-id 属性 使用如下代码 1 driver.find_element_by_id(&#39;expand_search&#39;) 根据CLASS NAME 安卓界面元素的 class属性 其实就是根据元素的类型，类似web里面的tagname， 所以通常不是唯一的。 通常，我们根据class 属性来选择元素， 是要选择多个而不是一个。 当然如果你确定 要查找的 界面元素的类型 在当前界面中只有一个，就可以根据class 来唯一选择。 使用如下代码 1 driver.find_elements_by_class_name(&#39;android.widget.TextView&#39;) 根据ACCESSIBILITY ID 元素的 content-desc 属性是用来描述该元素的作用的。 如果要查询的界面元素有 content-desc属性，我们可以通过它来定位选择元素。 使用如下代码 1 driver.find_element_by_accessibility_id(&#39;找人&#39;) Xpath Appium 也支持通过 Xpath选择元素。 但是其可靠性和性能不如 Selenium Web自动化。因为Web自动化对Xpath的支持是由浏览器实现的，而Appium Xpath的支持是 Appium Server实现的。 毕竟，浏览器产品的成熟度比Appium要高很多。 当然，Xpath是标准语法，所以这里表达式的语法规则和 以前学习的Selenium里面Xpath的语法是一样的，比如 1 driver.find_element_by_xpath(&#39;//ele1/ele2[@attr=&quot;value&quot;]&#39;) 注意： selenium自动化中， xpath表达式中每个节点名是html的tagname。 但是在appium中， xpath表达式中 每个节点名 是元素的class属性值。 比如：要选择所有的文本节点，就使用如下代码 1 driver.find_element_by_xpath(&#39;//android.widget.TextView&#39;) 安卓 UIAutomator 视频讲解 根据id，classname， accessibilityid，xpath，这些方法选择元素，其实底层都是利用了安卓 uiautomator框架的API功能实现的。 参考 这里的谷歌安卓官方文档介绍： https://developer.android.google.cn/training/testing/ui-automator 也就是说，程序的这些定位请求，被Appium server转发给手机自动化代理程序，就转化为为uiautomator里面相应的定位函数调用。 其实，我们的自动化程序，可以直接告诉 手机上的自动化代理程序，让它 调用UI Automator API的java代码，实现最为直接的自动化控制。 主要是通过 UiSelector 这个类里面的方法实现元素定位的，比如 1 2 3 code = &#39;new UiSelector().text(&quot;热门&quot;).className(&quot;android.widget.TextView&quot;)&#39; ele = driver.find_element_by_android_uiautomator(code) ele.click() 就是通过 text 属性 和 className的属性 两个条件 来定位元素。 UiSelector里面有些元素选择的方法 可以解决 前面解决不了的问题。 比如 text 方法 可以根据元素的文本属性查找元素 textContains 根据文本包含什么字符串 textStartsWith 根据文本以什么字符串开头 textmartch 方法 可以使用正则表达式 选择一些元素，如下 1 code = &#39;new UiSelector().textMatches(&quot;^我的.*&quot;)&#39; UiSelector 的 instance 和 index 也可以用来定位元素，都是从0开始计数， 他们的区别： instance是匹配的结果所有元素里面 的第几个元素 index则是其父元素的几个节点，类似xpath 里面的*[n] UiSelector 的 childSelector 可以选择后代元素，比如 1 2 3 code = &#39;new UiSelector().resourceId(&quot;tv.danmaku.bili:id/recycler_view&quot;).childSelector(new UiSelector().className(&quot;android.widget.TextView&quot;))&#39; ele = driver.find_element_by_android_uiautomator(code) 注意： childSelector后面的引号要框住整个 子 uiSelector 的表达式 目前有个bug：只能找到符合条件的第一个元素，参考appium 在github上的 issues： https://github.com/appium/java-client/issues/150","headline":"Appium","dateModified":"2021-03-23T16:22:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -163,7 +163,7 @@
       <a href="/">伸手摘星</a>
     </div>
 
-    <div class="site-subtitle font-italic">A text-focused Jekyll theme</div>
+    <div class="site-subtitle font-italic">学习笔记</div>
 
   </div><!-- .profile-wrapper -->
 
@@ -955,6 +955,11 @@
     
     
     
+  
+    
+    
+    
+    
       
         
         
@@ -969,10 +974,31 @@
     
     
     
+  
+    
+    
+    
+    
       
         
         
 
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1005,6 +1031,9 @@
       
         
         <a class="post-tag" href="/tags/technology/">Technology</a>
+      
+        
+        <a class="post-tag" href="/tags/leetcode/">LeetCode</a>
       
         
         <a class="post-tag" href="/tags/tools/">Tools</a>
@@ -1051,6 +1080,19 @@
 
 
 
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
   
@@ -1472,6 +1514,11 @@ span:nth-of-type(1) 选取第一个标签为span的节...
     
     
     
+  
+    
+    
+    
+    
       
         
         
@@ -1486,10 +1533,31 @@ span:nth-of-type(1) 选取第一个标签为span的节...
     
     
     
+  
+    
+    
+    
+    
       
         
         
 
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1517,6 +1585,9 @@ span:nth-of-type(1) 选取第一个标签为span的节...
       
         
         <a class="post-tag" href="/tags/technology/">Technology</a>
+      
+        
+        <a class="post-tag" href="/tags/leetcode/">LeetCode</a>
       
         
         <a class="post-tag" href="/tags/tools/">Tools</a>

@@ -1,6 +1,21 @@
 [
   
   {
+    "title": "双指针",
+    "url": "/posts/%E5%8F%8C%E6%8C%87%E9%92%88/",
+    "categories": "LeetCode, Python",
+    "tags": "Python, LeetCode",
+    "date": "2021-04-19 20:55:00 +0800",
+    
+
+
+
+
+
+    "snippet": "集中常见的双指针技巧一、对撞指针对撞指针一般用在有序数组中，将指向左侧的索引定义为左指针(left)，右侧的定义为右指针(right)，然后从两头向中间进行数组遍历，结束条件为两指针相遇。二分算法二分算法是对撞指针典型应用def lower_bound(array, left, right, target):  # 求非降序范围[left, right)内第一个不小于target的值的位置    while left &amp;lt; right:  # 搜索区间[left, right)不为空        mid = left + (right - left) // 2  # 防溢出..."
+  },
+  
+  {
     "title": "Python-heapq",
     "url": "/posts/heapq/",
     "categories": "Code, Python",

@@ -40,7 +40,7 @@
 <meta name="twitter:creator" content="@Weijia Li" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"datePublished":"2021-03-25T10:16:00+08:00","headline":"Selenium","url":"https://sszx866.github.io/posts/Selenium/","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Selenium/"},"author":{"@type":"Person","name":"Weijia Li"},"description":"Selenium 一、CSS Selector ‘&gt;’ 和 ‘空格’ ‘ &gt;’ 表示子节点，’空格’ 表示后代 ’#’表示id ‘.’表示css ‘,’ 组选择器可选取多个元素且优先级最低 :nth-child(x) 选取第x个子节点 :nth-last-child(x) 选取倒数第x个子节点 span:nth-of-type(1) 选取第一个标签为span的节点 span:nth-last-of-type(1) 选取倒数第一个标签为span的节点 #t1 :nth-child(odd/even) 选取id为t1下的奇数/偶数子节点 #t1 p:nth-child(odd/even) 选取id为t1下的标签为p的奇数/偶数节点 h3 + span 选取所有与h3相邻（兄弟）的span节点 h3 ~ span 选取所有在h3后所有的span节点（在同级） 二、iframe/frame 部分页面中包含另一份body，查找元素时需要切换。 1 wd.switch_to.frame(&#39;frame1&#39;) 切换frame 1 wd.switch_to.default_content() 切回默认 三、切换窗口 可以使用该命令切换窗口 1 wd.switch_to.window(handle) 由于handle无法确定，可以使用以下方法切换窗口 1 2 3 4 from handlw in wd.window_handles: wd.switch_to.window(handle) if &#39;blog&#39; in wd.title: pass 切换到之前标签页需要先保存handle 1 2 mainWindow = wd.current_window_handle#保存当前页面handle wd.switch_to.window(mainWindow) 四、选择框 radio选择框（单一） 直接选取元素后模拟点击即可 checkbox选择框（多选框） 先把所有选中的点击一下，再点击想要选中的 1 2 3 4 5 elements = wd.find_elements_by_css_selector(&#39;#s_checkbox input[checked=&quot;checked&quot;]&#39;) for element in elements: element.click() #点击已选中的 wd.find_element_by_css_selector(&quot;#s_checkbox input[value=&#39;abc&#39;]&quot;).click() select选择框（下拉选择框） 根据属性值 1 s.select_by_value(&#39;foo&#39;) 根据次序 1 s.select_by_index 根据可见文本 1 s.select_by_visible_text(&#39;Bar&#39;) 取消选中 1 2 3 4 deselect_by_value deselect_by_index deselect_by_visible_text deselect_all eg: 1 2 3 4 5 6 7 from selenium.webdriver.support.select import Select #创建select对象 select = Select(wd.find_element_by_id(&#39;ss_single&#39;)) #选中abc select.select_by_visible_text(&#39;abc&#39;) 五、更多动作 Actionchains类中定义了大量的动作，这里简单介绍鼠标移动的方法 1 2 3 4 5 6 7 8 from selenium.webdriver.common.action_chains import ActionChains ac = ActionChains(wd) #移动鼠标到 元素上 ac.move_to_element( wd.find_element_by_css_selector(&#39;[name=&quot;tj_briicon&quot;]&#39;) ).perform() 六、冻结界面 在浏览器控制台输入： 1 setTimeout(function(){debugger},5000) 表示五秒后执行(debugger)命令，即五秒后冻结界面 七、弹出对话框 1 2 3 4 5 6 driver.switch_to.alert.accept()#确认对话框 driver.switch_to.alert.dismiss()#对话框点击取消 driver.switch_to.alert.text #获取对话框文本 driver.switch_to.alert.send_keys(&#39;abc&#39;)#对话框输入信息 八、xPath 直接子节点 ’/‘ 所有后代 ’//‘ 根据id属性选择！ 根据属性来选择元素 是通过 这种格式来的 [@属性名=&#39;属性值&#39;] 例如选择 id 为 west 的元素，可以这样 //*[@id=&#39;west&#39;] 按次序选择 1 //p[2] 选择p类型第2个的子元素 1 //div/p[2] 选取父元素为div中的p类型第2个子元素 1 //div/*[2] 选择父元素为div的第2个子元素，不管是什么类型 1 //p[last()] 选取p类型倒数第1个子元素 1 //p[last()-1] 选取p类型倒数第2个子元素 1 //div/p[last()-2] 选择父元素为div中p类型倒数第3个子元素 范围选择 1 //option[position()&lt;=2] 选取option类型第1到2个子元素 1 //option[position()&lt;3] 选取option类型第1到2个子元素 1 //*[@class=&#39;multi_choice&#39;]/*[position()&lt;=3] 选择class属性为multi_choice的前3个子元素 1 2 //*[@class=&#39;multi_choice&#39;]/*[position()&gt;=last()-2] 选择class属性为multi_choice的后3个子元素 为什么不是 last()-3 呢？ 因为 last() 本身代表最后一个元素 last()-1 本身代表倒数第2个元素 last()-2 本身代表倒数第3个元素 组选择 css有组选择，可以同时使用多个表达式，多个表达式选择的结果都是要选择的元素 css 组选择，表达式之间用 逗号 隔开 xpath也有组选择， 是用 竖线 隔开多个表达式 比如，要选所有的option元素 和所有的 h4 元素，可以使用 1 //option | //h4 等同于CSS选择器 1 option , h4 再比如，要选所有的 class 为 single_choice 和 class 为 multi_choice 的元素，可以使用 1 //*[@class=&#39;single_choice&#39;] | //*[@class=&#39;multi_choice&#39;] 等同于CSS选择器 1 .single_choice , .multi_choice 选择父节点 xpath可以选择父节点， 这是css做不到的。 某个元素的父节点用 /.. 表示 比如，要选择 id 为 china 的节点的父节点，可以这样写 //*[@id=&#39;china&#39;]/.. 。 当某个元素没有特征可以直接选择，但是它有子节点有特征， 就可以采用这种方法，先选择子节点，再指定父节点。 还可以继续找上层父节点，比如 //*[@id=&#39;china&#39;]/../../.. 兄弟节点选择 前面学过 css选择器，要选择某个节点的后续兄弟节点，用 波浪线 xpath也可以选择 后续 兄弟节点，用这样的语法 following-sibling:: 比如，要选择 class 为 single_choice 的元素的所有后续兄弟节点 //*[@class=&#39;single_choice&#39;]/following-sibling::* 等同于CSS选择器 .single_choice ~ * 如果，要选择后续节点中的div节点， 就应该这样写 //*[@class=&#39;single_choice&#39;]/following-sibling::div xpath还可以选择 前面的 兄弟节点，用这样的语法 preceding-sibling:: 比如，要选择 class 为 single_choice 的元素的所有前面的兄弟节点 //*[@class=&#39;single_choice&#39;]/preceding-sibling::* 而CSS选择器目前还没有方法选择前面的 兄弟节点","@type":"BlogPosting","dateModified":"2021-03-25T10:16:00+08:00","@context":"https://schema.org"}</script>
+{"datePublished":"2021-03-25T10:16:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Selenium/"},"url":"https://sszx866.github.io/posts/Selenium/","author":{"@type":"Person","name":"Weijia Li"},"description":"Selenium 一、CSS Selector ‘&gt;’ 和 ‘空格’ ‘ &gt;’ 表示子节点，’空格’ 表示后代 ’#’表示id ‘.’表示css ‘,’ 组选择器可选取多个元素且优先级最低 :nth-child(x) 选取第x个子节点 :nth-last-child(x) 选取倒数第x个子节点 span:nth-of-type(1) 选取第一个标签为span的节点 span:nth-last-of-type(1) 选取倒数第一个标签为span的节点 #t1 :nth-child(odd/even) 选取id为t1下的奇数/偶数子节点 #t1 p:nth-child(odd/even) 选取id为t1下的标签为p的奇数/偶数节点 h3 + span 选取所有与h3相邻（兄弟）的span节点 h3 ~ span 选取所有在h3后所有的span节点（在同级） 二、iframe/frame 部分页面中包含另一份body，查找元素时需要切换。 1 wd.switch_to.frame(&#39;frame1&#39;) 切换frame 1 wd.switch_to.default_content() 切回默认 三、切换窗口 可以使用该命令切换窗口 1 wd.switch_to.window(handle) 由于handle无法确定，可以使用以下方法切换窗口 1 2 3 4 from handlw in wd.window_handles: wd.switch_to.window(handle) if &#39;blog&#39; in wd.title: pass 切换到之前标签页需要先保存handle 1 2 mainWindow = wd.current_window_handle#保存当前页面handle wd.switch_to.window(mainWindow) 四、选择框 radio选择框（单一） 直接选取元素后模拟点击即可 checkbox选择框（多选框） 先把所有选中的点击一下，再点击想要选中的 1 2 3 4 5 elements = wd.find_elements_by_css_selector(&#39;#s_checkbox input[checked=&quot;checked&quot;]&#39;) for element in elements: element.click() #点击已选中的 wd.find_element_by_css_selector(&quot;#s_checkbox input[value=&#39;abc&#39;]&quot;).click() select选择框（下拉选择框） 根据属性值 1 s.select_by_value(&#39;foo&#39;) 根据次序 1 s.select_by_index 根据可见文本 1 s.select_by_visible_text(&#39;Bar&#39;) 取消选中 1 2 3 4 deselect_by_value deselect_by_index deselect_by_visible_text deselect_all eg: 1 2 3 4 5 6 7 from selenium.webdriver.support.select import Select #创建select对象 select = Select(wd.find_element_by_id(&#39;ss_single&#39;)) #选中abc select.select_by_visible_text(&#39;abc&#39;) 五、更多动作 Actionchains类中定义了大量的动作，这里简单介绍鼠标移动的方法 1 2 3 4 5 6 7 8 from selenium.webdriver.common.action_chains import ActionChains ac = ActionChains(wd) #移动鼠标到 元素上 ac.move_to_element( wd.find_element_by_css_selector(&#39;[name=&quot;tj_briicon&quot;]&#39;) ).perform() 六、冻结界面 在浏览器控制台输入： 1 setTimeout(function(){debugger},5000) 表示五秒后执行(debugger)命令，即五秒后冻结界面 七、弹出对话框 1 2 3 4 5 6 driver.switch_to.alert.accept()#确认对话框 driver.switch_to.alert.dismiss()#对话框点击取消 driver.switch_to.alert.text #获取对话框文本 driver.switch_to.alert.send_keys(&#39;abc&#39;)#对话框输入信息 八、xPath 直接子节点 ’/‘ 所有后代 ’//‘ 根据id属性选择！ 根据属性来选择元素 是通过 这种格式来的 [@属性名=&#39;属性值&#39;] 例如选择 id 为 west 的元素，可以这样 //*[@id=&#39;west&#39;] 按次序选择 1 //p[2] 选择p类型第2个的子元素 1 //div/p[2] 选取父元素为div中的p类型第2个子元素 1 //div/*[2] 选择父元素为div的第2个子元素，不管是什么类型 1 //p[last()] 选取p类型倒数第1个子元素 1 //p[last()-1] 选取p类型倒数第2个子元素 1 //div/p[last()-2] 选择父元素为div中p类型倒数第3个子元素 范围选择 1 //option[position()&lt;=2] 选取option类型第1到2个子元素 1 //option[position()&lt;3] 选取option类型第1到2个子元素 1 //*[@class=&#39;multi_choice&#39;]/*[position()&lt;=3] 选择class属性为multi_choice的前3个子元素 1 2 //*[@class=&#39;multi_choice&#39;]/*[position()&gt;=last()-2] 选择class属性为multi_choice的后3个子元素 为什么不是 last()-3 呢？ 因为 last() 本身代表最后一个元素 last()-1 本身代表倒数第2个元素 last()-2 本身代表倒数第3个元素 组选择 css有组选择，可以同时使用多个表达式，多个表达式选择的结果都是要选择的元素 css 组选择，表达式之间用 逗号 隔开 xpath也有组选择， 是用 竖线 隔开多个表达式 比如，要选所有的option元素 和所有的 h4 元素，可以使用 1 //option | //h4 等同于CSS选择器 1 option , h4 再比如，要选所有的 class 为 single_choice 和 class 为 multi_choice 的元素，可以使用 1 //*[@class=&#39;single_choice&#39;] | //*[@class=&#39;multi_choice&#39;] 等同于CSS选择器 1 .single_choice , .multi_choice 选择父节点 xpath可以选择父节点， 这是css做不到的。 某个元素的父节点用 /.. 表示 比如，要选择 id 为 china 的节点的父节点，可以这样写 //*[@id=&#39;china&#39;]/.. 。 当某个元素没有特征可以直接选择，但是它有子节点有特征， 就可以采用这种方法，先选择子节点，再指定父节点。 还可以继续找上层父节点，比如 //*[@id=&#39;china&#39;]/../../.. 兄弟节点选择 前面学过 css选择器，要选择某个节点的后续兄弟节点，用 波浪线 xpath也可以选择 后续 兄弟节点，用这样的语法 following-sibling:: 比如，要选择 class 为 single_choice 的元素的所有后续兄弟节点 //*[@class=&#39;single_choice&#39;]/following-sibling::* 等同于CSS选择器 .single_choice ~ * 如果，要选择后续节点中的div节点， 就应该这样写 //*[@class=&#39;single_choice&#39;]/following-sibling::div xpath还可以选择 前面的 兄弟节点，用这样的语法 preceding-sibling:: 比如，要选择 class 为 single_choice 的元素的所有前面的兄弟节点 //*[@class=&#39;single_choice&#39;]/preceding-sibling::* 而CSS选择器目前还没有方法选择前面的 兄弟节点","headline":"Selenium","dateModified":"2021-03-25T10:16:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -163,7 +163,7 @@
       <a href="/">伸手摘星</a>
     </div>
 
-    <div class="site-subtitle font-italic">A text-focused Jekyll theme</div>
+    <div class="site-subtitle font-italic">学习笔记</div>
 
   </div><!-- .profile-wrapper -->
 
@@ -1065,6 +1065,11 @@
     
     
     
+  
+    
+    
+    
+    
       
         
         
@@ -1079,10 +1084,31 @@
     
     
     
+  
+    
+    
+    
+    
       
         
         
 
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1115,6 +1141,9 @@
       
         
         <a class="post-tag" href="/tags/technology/">Technology</a>
+      
+        
+        <a class="post-tag" href="/tags/leetcode/">LeetCode</a>
       
         
         <a class="post-tag" href="/tags/tools/">Tools</a>
@@ -1154,6 +1183,19 @@
 
 
 
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
   
@@ -1574,6 +1616,11 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
     
     
     
+  
+    
+    
+    
+    
       
         
         
@@ -1588,10 +1635,31 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
     
     
     
+  
+    
+    
+    
+    
       
         
         
 
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1619,6 +1687,9 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
       
         
         <a class="post-tag" href="/tags/technology/">Technology</a>
+      
+        
+        <a class="post-tag" href="/tags/leetcode/">LeetCode</a>
       
         
         <a class="post-tag" href="/tags/tools/">Tools</a>

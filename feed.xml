@@ -4,7 +4,7 @@
   <id>https://sszx866.github.io/</id>
   <title>伸手摘星</title>
   <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
-  <updated>2021-04-18T21:40:50+08:00</updated>
+  <updated>2021-04-19T23:27:35+08:00</updated>
   <author>
     <name>Weijia Li</name>
     <uri>https://sszx866.github.io/</uri>
@@ -17,6 +17,58 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>双指针</title>
+    <link href="https://sszx866.github.io/posts/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="alternate" type="text/html" title="双指针" />
+    <published>2021-04-19T20:55:00+08:00</published>
+  
+    <updated>2021-04-19T20:55:00+08:00</updated>
+  
+    <id>https://sszx866.github.io/posts/%E5%8F%8C%E6%8C%87%E9%92%88/</id>
+    <content src="https://sszx866.github.io/posts/%E5%8F%8C%E6%8C%87%E9%92%88/" />
+    <author>
+      <name>Weijia Li</name>
+    </author>
+
+  
+    
+    <category term="LeetCode" />
+    
+    <category term="Python" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      集中常见的双指针技巧
+
+一、对撞指针
+
+对撞指针一般用在有序数组中，将指向左侧的索引定义为左指针(left)，右侧的定义为右指针(right)，然后从两头向中间进行数组遍历，结束条件为两指针相遇。
+
+二分算法
+
+二分算法是对撞指针典型应用
+
+def lower_bound(array, left, right, target):  # 求非降序范围[left, right)内第一个不小于target的值的位置
+    while left &amp;lt; right:  # 搜索区间[left, right)不为空
+        mid = left + (right - left) // 2  # 防溢出
+        if array[mid] &amp;lt; target:
+            left = mid + 1
+        else:
+            rig...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -254,63 +306,6 @@ scrapy list
 
 主要修改 settings.py name.py pipelines.py三个文件
 
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Linux</title>
-    <link href="https://sszx866.github.io/posts/Linux/" rel="alternate" type="text/html" title="Linux" />
-    <published>2021-02-13T18:32:00+08:00</published>
-  
-    <updated>2021-02-13T18:32:00+08:00</updated>
-  
-    <id>https://sszx866.github.io/posts/Linux/</id>
-    <content src="https://sszx866.github.io/posts/Linux/" />
-    <author>
-      <name>Weijia Li</name>
-    </author>
-
-  
-    
-    <category term="Technology" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Linux
-
-1.进程的前台、后台转换
-
-点击这里，看视频讲解，学习下面内容
-
-Linux终端通过Shell程序来接收用户输入的命令，并且执行命令。
-
-我们在Shell里正在执行的，和用户进行人机交互的进程叫 前台进程 (foreground process)
-
-前台进程可以接收键盘输入并将结果显示在显示器上。
-
-用户敲入什么命令，shell就会启动对应的程序，运行在 前台 。
-
-比如，大家可以用vi 编写一个 下面的Python程序到 Linux主机上，代码文件名可以为t1.py
-
-while True:    
-    info = raw_input("please input something:")
-    print("you input:%s\n\n" % info)
-
-
-然后使用命令 python t1.py 运行。
-
-可以发现及时这个 python 程序变成了前台进...
     </summary>
   
 
