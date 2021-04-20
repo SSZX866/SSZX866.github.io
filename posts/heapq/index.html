@@ -25,7 +25,7 @@
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="Python-heapq" />
-<meta name="author" content="Weijia Li" />
+<meta name="author" content="SSZX" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Python-heapq" />
 <meta property="og:description" content="Python-heapq" />
@@ -33,14 +33,14 @@
 <meta property="og:url" content="https://sszx866.github.io/posts/heapq/" />
 <meta property="og:site_name" content="伸手摘星" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-18T19:55:00+08:00" />
+<meta property="article:published_time" content="2021-04-18T20:55:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Python-heapq" />
 <meta name="twitter:site" content="@twitter" />
-<meta name="twitter:creator" content="@Weijia Li" />
+<meta name="twitter:creator" content="@SSZX" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"datePublished":"2021-04-18T19:55:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/heapq/"},"url":"https://sszx866.github.io/posts/heapq/","author":{"@type":"Person","name":"Weijia Li"},"description":"Python-heapq","headline":"Python-heapq","dateModified":"2021-04-18T19:55:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"datePublished":"2021-04-18T20:55:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/heapq/"},"url":"https://sszx866.github.io/posts/heapq/","author":{"@type":"Person","name":"SSZX"},"description":"Python-heapq","headline":"Python-heapq","dateModified":"2021-04-18T20:55:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -535,7 +535,7 @@
         <!-- Published date and author -->
         <div>
           <span class="semi-bold">
-            Weijia Li
+            SSZX
           </span>
           <!--
   Date format snippet
@@ -550,7 +550,7 @@
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Sun, Apr 18, 2021,  7:55 PM +0800"
+    title="Sun, Apr 18, 2021,  8:55 PM +0800"
   
 
   
@@ -563,7 +563,7 @@
     Apr 18
   
 
-  <i class="unloaded">2021-04-18T19:55:00+08:00</i>
+  <i class="unloaded">2021-04-18T20:55:00+08:00</i>
 
 </span>
 
@@ -588,7 +588,7 @@
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="586 words">3 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1176 words">6 min</span>
 
 
           <!-- page views -->
@@ -618,7 +618,7 @@
 
 <p>整个最小堆的最小元素总是位于二叉树的根节点.</p>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="../../img/20190813101607984.png" alt="20190813101607984" /></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/20190813101607984.png" alt="20190813101607984" /></p>
 
 <p><strong>二叉堆可以很容易用数组列表来表示</strong>，因为一棵高度为h的完全二叉树有2^h到2^(h+1)-1个节点，这样存放一个二叉堆就不会太浪费空间，而且一旦知道高度，就可以知道节点数的范围。</p>
 
@@ -696,13 +696,161 @@
 <span class="n">heapq</span><span class="p">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="c1">#[3, 5, 5]
 </span></pre></td></tr></tbody></table></code></div></div>
 
+<h2 id="三堆与对顶堆">三、堆与对顶堆</h2>
+
+<h4 id="-数组中的第k个最大元素"><a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/"> 数组中的第K个最大元素</a></h4>
+
+<p>在未排序的数组中找到第 <strong>k</strong> 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">输入</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="n">和</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">输出</span><span class="p">:</span> <span class="mi">5</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>思路：维护一个大顶堆和一个小顶堆，将小顶堆的容量设为k，且小顶堆中根大于等于大顶堆根，由不等式传递性可知，小顶堆所有元素均大于等于大顶堆，即小顶堆根节点为所求</p>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="../img/IMG_A2421197E9A7-1.jpeg" alt="IMG_A2421197E9A7-1" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="c1"># 由于heapq只有小顶堆，故传入(-num,num)使其成为大顶堆(heapq默认按照元组第一个元素排序)
+</span><span class="kn">import</span> <span class="nn">heapq</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">findKthLargest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">heapSmall</span><span class="p">,</span> <span class="n">heapBig</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+                <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="n">heapSmall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapBig</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">tmp</span><span class="p">,</span> <span class="n">tmp</span><span class="p">))</span>
+                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapBig</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+        <span class="c1"># print(num, heapq.nsmallest(2, heapSmall), heapq.nsmallest(5, heapBig))
+</span>				<span class="c1"># 4 [(5, 5), (6, 6)] [(-4, 4), (-3, 3), (-2, 2), (-1, 1)]
+</span>        <span class="k">return</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>上述算法也可简写为小顶堆</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="c1"># 小顶堆
+</span><span class="kn">import</span> <span class="nn">heapq</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">findKthLargest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">heapSmall</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+                <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="n">heapSmall</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)</span>
+                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
 <h2 id="三优先队列">三、优先队列</h2>
 
-<p>优先队列中的每个元素都有优先级，而优先级高（或者低）的将会先出队，而优先级相同的则按照其在优先队列中的顺序依次出队。</p>
+<p>优先队列中的每个元素都有优先级，而优先级高（或者低）的将会先出队，而优先级相同的则按照其在优先
+队列中的顺序依次出队。</p>
 
-<h2 id="reference">Reference</h2>
+<h4 id="-丑数-ii"><a href="https://leetcode-cn.com/problems/ugly-number-ii/"> 丑数 II</a></h4>
 
-<p>1.<a href="https://docs.python.org/3.7/library/heapq.html#module-heapq">heapq— Heap queue algorithm</a></p>
+<p>给你一个整数 <code class="language-plaintext highlighter-rouge">n</code> ，请你找出并返回第 <code class="language-plaintext highlighter-rouge">n</code> 个 <strong>丑数</strong> 。</p>
+
+<p><strong>丑数</strong> 就是只包含质因数 <code class="language-plaintext highlighter-rouge">2</code>、<code class="language-plaintext highlighter-rouge">3</code> 和/或 <code class="language-plaintext highlighter-rouge">5</code> 的正整数。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">输入</span><span class="err">：</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">输出</span><span class="err">：</span><span class="mi">12</span>
+<span class="n">解释</span><span class="err">：</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span> <span class="n">是由前</span> <span class="mi">10</span> <span class="n">个丑数组成的序列</span><span class="err">。</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">输入</span><span class="err">：</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">输出</span><span class="err">：</span><span class="mi">1</span>
+<span class="n">解释</span><span class="err">：</span><span class="mi">1</span> <span class="n">通常被视为丑数</span><span class="err">。</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>思路:使用优先队列：</p>
+
+<ol>
+  <li>起始先将最小丑数 11 放入队列</li>
+  <li>每次从队列取出最小值 x，然后将 x 所对应的丑数 2x、3x和 5x 进行入队。</li>
+  <li>对步骤 2 循环多次，第 n 次出队的值即是答案。</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">heapq</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">nthUglyNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">queue</span><span class="p">,</span> <span class="n">dic</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">heapq</span><span class="p">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">ans</span> <span class="o">*</span> <span class="n">i</span>
+                <span class="k">if</span> <span class="n">tmp</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+                    <span class="n">dic</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span>
+            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">ans</span>
+</pre></td></tr></tbody></table></code></div></div>
+
 
 
       </div>
