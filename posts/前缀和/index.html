@@ -24,27 +24,27 @@
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Mysql" />
-<meta name="author" content="Weijia Li" />
+<meta property="og:title" content="前缀和" />
+<meta name="author" content="SSZX" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Mysql 版本mysql-8.0.22-winx64 启动 1 mysqld --console 登录 1 mysql -u root -p #####" />
-<meta property="og:description" content="Mysql 版本mysql-8.0.22-winx64 启动 1 mysqld --console 登录 1 mysql -u root -p #####" />
-<link rel="canonical" href="https://sszx866.github.io/posts/Mysql/" />
-<meta property="og:url" content="https://sszx866.github.io/posts/Mysql/" />
+<meta name="description" content="Python" />
+<meta property="og:description" content="Python" />
+<link rel="canonical" href="https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" />
+<meta property="og:url" content="https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" />
 <meta property="og:site_name" content="伸手摘星" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-12-19T21:27:00+08:00" />
+<meta property="article:published_time" content="2021-04-22T11:55:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Mysql" />
+<meta property="twitter:title" content="前缀和" />
 <meta name="twitter:site" content="@twitter" />
-<meta name="twitter:creator" content="@Weijia Li" />
+<meta name="twitter:creator" content="@SSZX" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"datePublished":"2020-12-19T21:27:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Mysql/"},"url":"https://sszx866.github.io/posts/Mysql/","author":{"@type":"Person","name":"Weijia Li"},"description":"Mysql 版本mysql-8.0.22-winx64 启动 1 mysqld --console 登录 1 mysql -u root -p #####","headline":"Mysql","dateModified":"2020-12-19T21:27:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"datePublished":"2021-04-22T11:55:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/"},"url":"https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/","author":{"@type":"Person","name":"SSZX"},"description":"Python","headline":"前缀和","dateModified":"2021-04-22T11:55:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Mysql | 伸手摘星
+  <title>前缀和 | 伸手摘星
   </title>
 
   <!--
@@ -452,7 +452,7 @@
       
 
         
-          <span>Mysql</span>
+          <span>前缀和</span>
 
         
 
@@ -508,6 +508,20 @@
 
 
 
+  
+
+  
+
+  <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+  
+  
+
+  
+
+  
+
+
+
 <!-- return -->
 <div class="row">
 
@@ -515,13 +529,13 @@
 
     <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
 
-      <h1 data-toc-skip>Mysql</h1>
+      <h1 data-toc-skip>前缀和</h1>
 
       <div class="post-meta text-muted d-flex flex-column">
         <!-- Published date and author -->
         <div>
           <span class="semi-bold">
-            Weijia Li
+            SSZX
           </span>
           <!--
   Date format snippet
@@ -536,7 +550,7 @@
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Sat, Dec 19, 2020,  9:27 PM +0800"
+    title="Thu, Apr 22, 2021, 11:55 AM +0800"
   
 
   
@@ -546,10 +560,10 @@
   
 
   
-    Dec 19, 2020
+    Apr 22
   
 
-  <i class="unloaded">2020-12-19T21:27:00+08:00</i>
+  <i class="unloaded">2021-04-22T11:55:00+08:00</i>
 
 </span>
 
@@ -574,7 +588,7 @@
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="17 words">1 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="590 words">3 min</span>
 
 
           <!-- page views -->
@@ -588,31 +602,145 @@
 
         
 
-        <h1 id="mysql">Mysql</h1>
+        <h1 id="python">Python</h1>
 
-<p>版本mysql-8.0.22-winx64</p>
+<h2 id="一前缀和">一、前缀和</h2>
 
-<ul>
-  <li>
-    <h5 id="启动">启动</h5>
-  </li>
-</ul>
+<p>前缀和是一个数组的某项下标之前(包括此项元素)的所有数组元素的和。</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>mysqld <span class="nt">--console</span>
+<p>设 <code class="language-plaintext highlighter-rouge">b[]</code> 为前缀和数组，<code class="language-plaintext highlighter-rouge">a[]</code> 为原数组，根据这句话可以得到前缀和的定义式和递推式：</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">定义式</th>
+      <th style="text-align: center">递推式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">一维前缀和</td>
+      <td style="text-align: center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://math.jianshu.com/math?formula=b%5Bi%5D%20%3D%20%5Csum_%7Bj%3D0%7D%5E%7Bi%7Da%5Bj%5D" alt="b[i] = \sum_{j=0}^{i}a[j]" /></td>
+      <td style="text-align: center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://math.jianshu.com/math?formula=b%5Bi%5D%20%3D%20b%5Bi-1%5D%20%2B%20a%5Bi%5D" alt="b[i] = b[i-1] + a[i]" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">二维前缀和</td>
+      <td style="text-align: center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://math.jianshu.com/math?formula=b%5Bx%5D%5By%5D%20%3D%20%5Csum_%7Bi%3D0%7D%5E%7Bx%7D%5Csum_%7Bj%3D0%7D%5E%7By%7Da%5Bi%5D%5Bj%5D" alt="b[x][y] = \sum_{i=0}^{x}\sum_{j=0}^{y}a[i][j]" /></td>
+      <td style="text-align: center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://math.jianshu.com/math?formula=b%5Bx%5D%5By%5D%20%3D%20b%5Bx-1%5D%5By%5D%20%2B%20b%5Bx%5D%5By-1%5D%20-%20b%5Bx-1%5D%5By-1%5D%20%2B%20b%5Bx%5D%5By%5D" alt="b[x][y] = b[x-1][y] + b[x][y-1] - b[x-1][y-1] + b[x][y]" /></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>当需要我们求「某一段」区域的和的时候，我们要很自然的想到「前缀和」。</p>
+
+<p>前缀和的作用就是为了帮助我们快速求某一段的和，是「差分」的逆运算。</p>
+
+<p><strong>前缀和数组 <code class="language-plaintext highlighter-rouge">sum</code> 的每一位记录的是当前位置距离起点位置，这连续一段的和区间和。</strong></p>
+
+<p>因此当我们要求特定的一段 [i,j] 的区域和的时候，可以直接利用前缀和数组快速求解：<code class="language-plaintext highlighter-rouge">ans = sum[j] - sum[i - 1]</code>。</p>
+
+<h4 id="区域和检索---数组不可变"><a href="https://leetcode-cn.com/problems/range-sum-query-immutable/">区域和检索 - 数组不可变</a></h4>
+
+<p>给定一个整数数组  nums，求出数组从索引 i 到 j（i ≤ j）范围内元素的总和，包含 i、j 两点。</p>
+
+<p>实现 <code class="language-plaintext highlighter-rouge">NumArray</code> 类：</p>
+
+<p><code class="language-plaintext highlighter-rouge">NumArray(int[] nums)</code> 使用数组 <code class="language-plaintext highlighter-rouge">nums</code> 初始化对象</p>
+
+<p><code class="language-plaintext highlighter-rouge">int sumRange(int i, int j)</code> 返回数组 <code class="language-plaintext highlighter-rouge">nums</code> 从索引 <code class="language-plaintext highlighter-rouge">i</code> 到 <code class="language-plaintext highlighter-rouge">j</code><em>（</em><code class="language-plaintext highlighter-rouge">i ≤ j</code>）范围内元素的总和，包含 <code class="language-plaintext highlighter-rouge">i</code>、<code class="language-plaintext highlighter-rouge">j </code>两点（也就是<code class="language-plaintext highlighter-rouge">sum(nums[i], nums[i + 1], ... , nums[j])</code>）</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">NumArray</span><span class="p">:</span>
+  
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">sum_</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">sum_</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">sum_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">sumRange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+      
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">sum_</span><span class="p">[</span><span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">sum_</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<ul>
-  <li>
-    <h5 id="登录">登录</h5>
-  </li>
-</ul>
+<h4 id="二维区域和检索---矩阵不可变"><a href="https://leetcode-cn.com/problems/range-sum-query-2d-immutable/">二维区域和检索 - 矩阵不可变</a></h4>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>mysql <span class="nt">-u</span> root <span class="nt">-p</span>
+<p>给定一个二维矩阵，计算其子矩形范围内元素的总和，该子矩阵的左上角为 <code class="language-plaintext highlighter-rouge">(row1, col1)</code> ，右下角为 <code class="language-plaintext highlighter-rouge">(row2, col2)</code> 。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="n">示例</span><span class="err">：</span>
+
+<span class="n">给定</span> <span class="n">matrix</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">sumRegion</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">8</span>
+<span class="n">sumRegion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">11</span>
+<span class="n">sumRegion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">12</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>#####</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">NumMatrix</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">matrix</span>
+        <span class="n">m</span> <span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">matrix</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">_sum</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">_sum</span><span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">_sum</span><span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">_sum</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">_sum</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_sum</span> <span class="o">=</span> <span class="n">_sum</span>
+
+
+    <span class="k">def</span> <span class="nf">sumRegion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">col1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">row2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">col2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_sum</span><span class="p">[</span><span class="n">row2</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">col2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="bp">self</span><span class="p">.</span><span class="n">_sum</span><span class="p">[</span><span class="n">row1</span><span class="p">][</span><span class="n">col1</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">_sum</span><span class="p">[</span><span class="n">row2</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">col1</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">_sum</span><span class="p">[</span><span class="n">row1</span><span class="p">][</span><span class="n">col2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="reference">Reference</h2>
+
+<p>1.<a href="https://www.jianshu.com/p/89ec2814682c">前缀和算法</a></p>
+
+<p>2.<a href="https://leetcode-cn.com/problems/range-sum-query-immutable/solution/sha-shi-qian-zhui-he-ya-tu-jie-qian-zhui-0rla/">图解前缀和</a></p>
 
 
       </div>
@@ -624,7 +752,8 @@
         <div class="post-meta mb-3">
           <i class="far fa-folder-open fa-fw mr-1"></i>
           
-            <a href='/categories/technology/'>Technology</a>
+            <a href='/categories/leetcode/'>LeetCode</a>,
+            <a href='/categories/python/'>Python</a>
         </div>
         
 
@@ -633,8 +762,11 @@
         <div class="post-tags">
           <i class="fa fa-tags fa-fw mr-1"></i>
           
-          <a href="/tags/technology/"
-            class="post-tag no-text-decoration" >Technology</a>
+          <a href="/tags/python/"
+            class="post-tag no-text-decoration" >Python</a>
+          
+          <a href="/tags/leetcode/"
+            class="post-tag no-text-decoration" >LeetCode</a>
           
           </div>
         
@@ -661,19 +793,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=Mysql - 伸手摘星&url=https://sszx866.github.io/posts/Mysql/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=前缀和 - 伸手摘星&url=https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=Mysql - 伸手摘星&u=https://sszx866.github.io/posts/Mysql/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=前缀和 - 伸手摘星&u=https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=Mysql - 伸手摘星&url=https://sszx866.github.io/posts/Mysql/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=前缀和 - 伸手摘星&url=https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -835,6 +967,13 @@
   </div> <!-- .access -->
 
   
+    <!-- BS-toc.js will be loaded at medium priority -->
+    <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
+    <div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+      <span class="pl-3 pt-2 mb-2">Contents</span>
+      <nav id="toc" data-toggle="toc"></nav>
+    </div>
+  
 
 </div> <!-- #panel-wrapper -->
 
@@ -868,111 +1007,111 @@
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
   
 
   
@@ -997,166 +1136,12 @@
 
 
 
-  
-    
-    
-      
-      
-        
-        
-        
-      
-    
-  
-    
-    
-      
-      
-        
-        
-        
-          
-
-
-
 
 
   <div id="related-posts" class="mt-5 mb-2 mb-sm-4">
     <h3 class="pt-2 mt-1 mb-4 ml-1"
       data-toc-skip>Further Reading</h3>
     <div class="card-deck mb-4">
-    
-      
-      
-      <div class="card">
-        <a href="/posts/Linux/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago small"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Feb 13
-  
-
-  <i class="unloaded">2021-02-13T18:32:00+08:00</i>
-
-</span>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Linux</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                Linux
-
-1.进程的前台、后台转换
-
-点击这里，看视频讲解，学习下面内容
-
-Linux终端通过Shell程序来接收用户输入的命令，并且执行命令。
-
-我们在Shell里正在执行的，和用户进行人机交互的进程叫 前台进程 (foreground process)
-
-前台进程可以接收键盘输入并将结果显示在显示器上。
-
-用户敲入什么命令，shell就会启动对应的程序，运行在 前台 。
-
-比如，大家...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
-      
-      
-      <div class="card">
-        <a href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago small"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Apr 22
-  
-
-  <i class="unloaded">2021-04-22T11:55:00+08:00</i>
-
-</span>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>前缀和</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                Python
-
-一、前缀和
-
-前缀和是一个数组的某项下标之前(包括此项元素)的所有数组元素的和。
-
-设 b[] 为前缀和数组，a[] 为原数组，根据这句话可以得到前缀和的定义式和递推式：
-
-
-  
-    
-       
-      定义式
-      递推式
-    
-  
-  
-    
-      一维前缀和
-      
-      
-    
-    
-      二维前缀和
- ...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
     
       
       
@@ -1208,15 +1193,152 @@ Linux终端通过Shell程序来接收用户输入的命令，并且执行命令�
 
 二分算法是对撞指针典型应用
 
-1
-2
-3
-4
-5
-6
-7
-8
-def lower_bound(array, left, right, target):  # 求非降序范围[left,...
+def lower_bound(array, left, right, target):  # 求非降序范围[left, right)内第一个不小于ta...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/Python/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Feb  7
+  
+
+  <i class="unloaded">2021-02-07T18:32:00+08:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Python学习笔记</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Python学习笔记
+
+1、内置函数（Built-in Functions）
+
+set()
+
+set() 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
+
+参数说明：
+
+
+  iterable – 可迭代对象对象；
+
+
+&gt;&gt;&gt;x = set('runoob')
+&gt;&gt;&gt; y = set('google')
+&gt;...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/Scrapy/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Mar 13
+  
+
+  <i class="unloaded">2021-03-13T18:32:00+08:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Linux</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Scrapy
+
+
+  
+    创建工程
+  
+
+
+scrapy startproject &lt;name&gt;
+
+
+
+  
+    创建爬虫
+  
+
+
+scrapy genspider &lt;name&gt; &lt;domain&gt;
+
+
+
+  
+    运行爬虫
+  
+
+
+scrapy crawl &lt;spider&gt;
+
+
+
+  
+    列出所有爬虫
+  
+
+
+scr...
               </p>
             </div>
           </div>
@@ -1234,17 +1356,17 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left,...
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <a href="/posts/Typora/" class="btn btn-outline-primary"
+  <a href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>Markdown快速入门</p>
+    <p>双指针</p>
   </a>
   
 
   
-  <a href="/posts/Python/" class="btn btn-outline-primary"
+  <span class="btn btn-outline-primary disabled"
     prompt="Newer">
-    <p>Python学习笔记</p>
-  </a>
+    <p>-</p>
+  </span>
   
 
 </div>
@@ -1258,6 +1380,18 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left,...
 
 </div> <!-- .row -->
 
+
+
+  <!--
+  image lazy load: https://github.com/ApoorvSaxena/lozad.js
+-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+<script type="text/javascript">
+  const imgs = document.querySelectorAll('.post-content img');
+  const observer = lozad(imgs);
+  observer.observe();
+</script>
 
 
 

@@ -4,7 +4,7 @@
   <id>https://sszx866.github.io/</id>
   <title>伸手摘星</title>
   <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
-  <updated>2021-04-20T17:03:57+08:00</updated>
+  <updated>2021-04-22T11:56:32+08:00</updated>
   <author>
     <name>Weijia Li</name>
     <uri>https://sszx866.github.io/</uri>
@@ -17,6 +17,78 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>前缀和</title>
+    <link href="https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="alternate" type="text/html" title="前缀和" />
+    <published>2021-04-22T11:55:00+08:00</published>
+  
+    <updated>2021-04-22T11:55:00+08:00</updated>
+  
+    <id>https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/</id>
+    <content src="https://sszx866.github.io/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" />
+    <author>
+      <name>Weijia Li</name>
+    </author>
+
+  
+    
+    <category term="LeetCode" />
+    
+    <category term="Python" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Python
+
+一、前缀和
+
+前缀和是一个数组的某项下标之前(包括此项元素)的所有数组元素的和。
+
+设 b[] 为前缀和数组，a[] 为原数组，根据这句话可以得到前缀和的定义式和递推式：
+
+
+  
+    
+       
+      定义式
+      递推式
+    
+  
+  
+    
+      一维前缀和
+      
+      
+    
+    
+      二维前缀和
+      
+      
+    
+  
+
+
+当需要我们求「某一段」区域的和的时候，我们要很自然的想到「前缀和」。
+
+前缀和的作用就是为了帮助我们快速求某一段的和，是「差分」的逆运算。
+
+前缀和数组 sum 的每一位记录的是当前位置距离起点位置，这连续一段的和区间和。
+
+因此当我们要求特定的一段 [i,j] 的区域和的时候，可以直接利用前缀和数组快速求解：ans = sum[j] - sum[i ...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -231,81 +303,6 @@ adb shell dumpsys activity recents | find "intent={"
 
 intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=tv.danmaku.bili/.ui.splash.SplashActivity}
 intent={act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000300cmp=com.huawei.android.launcher/.unihome.UniHome...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Linux</title>
-    <link href="https://sszx866.github.io/posts/Scrapy/" rel="alternate" type="text/html" title="Linux" />
-    <published>2021-03-13T18:32:00+08:00</published>
-  
-    <updated>2021-03-13T18:32:00+08:00</updated>
-  
-    <id>https://sszx866.github.io/posts/Scrapy/</id>
-    <content src="https://sszx866.github.io/posts/Scrapy/" />
-    <author>
-      <name>Weijia Li</name>
-    </author>
-
-  
-    
-    <category term="Code" />
-    
-    <category term="Python" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Scrapy
-
-
-  
-    创建工程
-  
-
-
-scrapy startproject &amp;lt;name&amp;gt;
-
-
-
-  
-    创建爬虫
-  
-
-
-scrapy genspider &amp;lt;name&amp;gt; &amp;lt;domain&amp;gt;
-
-
-
-  
-    运行爬虫
-  
-
-
-scrapy crawl &amp;lt;spider&amp;gt;
-
-
-
-  
-    列出所有爬虫
-  
-
-
-scrapy list
-
-
-主要修改 settings.py name.py pipelines.py三个文件
-
     </summary>
   
 
