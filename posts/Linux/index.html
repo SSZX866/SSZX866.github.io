@@ -40,7 +40,7 @@
 <meta name="twitter:creator" content="@Weijia Li" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"datePublished":"2021-02-13T18:32:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Linux/"},"url":"https://sszx866.github.io/posts/Linux/","author":{"@type":"Person","name":"Weijia Li"},"description":"Linux","headline":"Linux","dateModified":"2021-02-13T18:32:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"dateModified":"2021-02-13T18:32:00+08:00","datePublished":"2021-02-13T18:32:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Linux/"},"url":"https://sszx866.github.io/posts/Linux/","author":{"@type":"Person","name":"Weijia Li"},"description":"Linux","headline":"Linux","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1658,6 +1658,19 @@ make &amp;&amp; make install
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
     
   
 
@@ -1811,6 +1824,73 @@ mysql -u root -p
       
       
       <div class="card">
+        <a href="/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr 24
+  
+
+  <i class="unloaded">2021-04-24T19:55:00+08:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>记忆化搜索</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                记忆化搜索
+
+一、记忆化搜索与递归
+
+1、使用递归来计算斐波那契数列
+
+递归过程中，有许多的结果是被反复计算的，这样会大大降低算法的执行效率。
+
+我们用最简单的斐波那契数列来举例，如果使用递归来解，当输入数据变得很大时，花费的时间呈现指数级别的增长。
+
+1
+2
+3
+4
+5
+6
+7
+import time
+def recur(n):
+    if n &lt; 2: return 1
+    ...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
         <a href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C/">
           <div class="card-body">
             <!--
@@ -1878,71 +1958,6 @@ mysql -u root -p
         </a>
       </div>
     
-      
-      
-      <div class="card">
-        <a href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago small"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Apr 19
-  
-
-  <i class="unloaded">2021-04-19T20:55:00+08:00</i>
-
-</span>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>双指针</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                集中常见的双指针技巧
-
-一、对撞指针
-
-对撞指针一般用在有序数组中，将指向左侧的索引定义为左指针(left)，右侧的定义为右指针(right)，然后从两头向中间进行数组遍历，结束条件为两指针相遇。
-
-二分算法
-
-二分算法是对撞指针典型应用
-
-1
-2
-3
-4
-5
-6
-7
-8
-def lower_bound(array, left, right, target):  # 求非降序范围[left,...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
     </div> <!-- .card-deck -->
   </div> <!-- #related-posts -->
 
@@ -1963,7 +1978,7 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left,...
   
   <a href="/posts/Scrapy/" class="btn btn-outline-primary"
     prompt="Newer">
-    <p>Linux</p>
+    <p>Scrapy</p>
   </a>
   
 

@@ -31,12 +31,13 @@
 <link rel="canonical" href="https://sszx866.github.io/" />
 <meta property="og:url" content="https://sszx866.github.io/" />
 <meta property="og:site_name" content="伸手摘星" />
+<link rel="next" href="https://sszx866.github.io/page2" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="伸手摘星" />
 <meta name="twitter:site" content="@twitter" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"url":"https://sszx866.github.io/","name":"Weijia Li","description":"A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.","headline":"伸手摘星","@type":"WebSite","sameAs":["https://twitter.com/username","https://github.com/SSZX866"],"@context":"https://schema.org"}</script>
+{"sameAs":["https://twitter.com/username","https://github.com/SSZX866"],"url":"https://sszx866.github.io/","name":"Weijia Li","description":"A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.","headline":"伸手摘星","@type":"WebSite","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -508,7 +509,7 @@
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/heapq/">Python-heapq</a>
+      <a href="/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">记忆化搜索</a>
     </h1>
 
     <div class="post-content">
@@ -519,19 +520,20 @@
 
 
 
-        Python-heapq
+        记忆化搜索
 
-一、堆(heap)
+一、记忆化搜索与递归
 
-二叉树堆是一棵完全二叉树，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）
+1、使用递归来计算斐波那契数列
 
-最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。
+递归过程中，有许多的结果是被反复计算的，这样会大大降低算法的执行效率。
 
-最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。
+我们用最简单的斐波那契数列来举例，如果使用递归来解，当输入数据变得很大时，花费的时间呈现指数级别的增长。
 
-我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。
-
-堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所...
+import time
+def recur(n):
+    if n &lt; 2: return 1
+    return recur(n...
       </p>
     </div>
 
@@ -553,7 +555,7 @@
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Sun, Apr 18, 2021,  8:55 PM +0800"
+    title="Sat, Apr 24, 2021,  7:55 PM +0800"
   
 
   
@@ -563,10 +565,10 @@
   
 
   
-    Apr 18
+    Apr 24
   
 
-  <i class="unloaded">2021-04-18T20:55:00+08:00</i>
+  <i class="unloaded">2021-04-24T19:55:00+08:00</i>
 
 </span>
 
@@ -587,18 +589,13 @@
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1176 words">6 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1715 words">9 min</span>
 
 
         <!-- page views -->
         
       </div>
 
-      
-      <div class="pin">
-        <i class="fas fa-thumbtack fa-fw"></i>
-        <span>Pinned</span>
-      </div>
       
 
     </div> <!-- .post-meta -->
@@ -699,7 +696,7 @@
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="589 words">3 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="597 words">3 min</span>
 
 
         <!-- page views -->
@@ -794,6 +791,102 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left, right)�
 
 <!-- return element -->
 <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1575 words">8 min</span>
+
+
+        <!-- page views -->
+        
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/heapq/">Python-heapq</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        Python-heapq
+
+一、堆(heap)
+
+二叉树堆是一棵完全二叉树，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）
+
+最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。
+
+最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。
+
+我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。
+
+堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex justify-content-between">
+
+      <div>
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago "
+  
+    data-toggle="tooltip"
+    data-placement="bottom"
+    title="Sun, Apr 18, 2021,  8:55 PM +0800"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr 18
+  
+
+  <i class="unloaded">2021-04-18T20:55:00+08:00</i>
+
+</span>
+
+
+        <!-- time to read -->
+        <i class="far fa-clock fa-fw"></i>
+        <!--
+  Calculate the post's reading time, and display the word count in tooltip
+ -->
+
+
+<!-- words per minute  -->
+
+
+
+
+
+
+
+<!-- return element -->
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1176 words">6 min</span>
 
 
         <!-- page views -->
@@ -1001,7 +1094,7 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/Scrapy/">Linux</a>
+      <a href="/posts/Scrapy/">Scrapy</a>
     </h1>
 
     <div class="post-content">
@@ -1423,117 +1516,6 @@ mysql -u root -p
 
 
 
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/Typora/">Markdown快速入门</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        Markdown快速入门 (typora)
-
-1、快捷键
-
-显示大纲：Ctrl+Shift+1
-
-显示代码：Ctrl+/
-
-2、代码块
-
-import numpy
-print("Hello world")
-
-
-java -jar blog start
-
-
-3、标题
-
-一级标题 Ctrl+1
-
-二级标题 Ctrl+2
-
-三级标题 Ctrl+3
-
-四级标题 Ctrl+4
-
-五级标题 Ctrl+5...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex justify-content-between">
-
-      <div>
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago "
-  
-    data-toggle="tooltip"
-    data-placement="bottom"
-    title="Sat, Sep 26, 2020,  1:27 PM +0800"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Sep 26, 2020
-  
-
-  <i class="unloaded">2020-09-26T13:27:00+08:00</i>
-
-</span>
-
-
-        <!-- time to read -->
-        <i class="far fa-clock fa-fw"></i>
-        <!--
-  Calculate the post's reading time, and display the word count in tooltip
- -->
-
-
-<!-- words per minute  -->
-
-
-
-
-
-
-
-<!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="145 words">1 min</span>
-
-
-        <!-- page views -->
-        
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
 </div> <!-- #post-list -->
 
 
@@ -1573,10 +1555,27 @@ java -jar blog start
 
   
 
+    
+    
+    
+    
+    
+
+    
+
+    
+      <!-- show number -->
+      <li class="page-item ">
+        <a class="page-link btn-box-shadow" href="/page2/">2</a>
+      </li>
+    
+
+  
+
   <!-- right arrow -->
   
-  <li class="page-item disabled">
-    <a class="page-link btn-box-shadow" href="#" aria-label="next-page">
+  <li class="page-item ">
+    <a class="page-link btn-box-shadow" href="/page2" aria-label="next-page">
       <i class="fas fa-angle-right"></i>
     </a>
   </li>

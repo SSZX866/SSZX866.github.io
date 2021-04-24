@@ -40,7 +40,7 @@
 <meta name="twitter:creator" content="@Weijia Li" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"datePublished":"2020-09-26T13:27:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Typora/"},"url":"https://sszx866.github.io/posts/Typora/","author":{"@type":"Person","name":"Weijia Li"},"description":"Markdown快速入门 (typora) 1、快捷键 显示大纲：Ctrl+Shift+1 显示代码：Ctrl+/ 2、代码块 1 2 import numpy print(&quot;Hello world&quot;) 1 java -jar blog start 3、标题 一级标题 Ctrl+1 二级标题 Ctrl+2 三级标题 Ctrl+3 四级标题 Ctrl+4 五级标题 Ctrl+5 六级标题 Ctrl+6 4、字体 加粗 Ctrl+B ==代码高亮== 删除线 Atl+Shift+5 斜体 Ctrl+I 下划线 Ctrl+U 上标 x^2^ 下标 H~2~O 5、引用 123 Ctrl+Shift+Q 123 123 6、分割线 7、图片 Ctrl+Shift+I 8、超链接 Typora Ctrl+K 9、表格 周一 周二 周三 语文 数学 英语 数学 英语 语文 英语 数学 语文","headline":"Markdown快速入门","dateModified":"2020-09-26T13:27:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"dateModified":"2020-09-26T13:27:00+08:00","datePublished":"2020-09-26T13:27:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/Typora/"},"url":"https://sszx866.github.io/posts/Typora/","author":{"@type":"Person","name":"Weijia Li"},"description":"Markdown快速入门 (typora) 1、快捷键 显示大纲：Ctrl+Shift+1 显示代码：Ctrl+/ 2、代码块 1 2 import numpy print(&quot;Hello world&quot;) 1 java -jar blog start 3、标题 一级标题 Ctrl+1 二级标题 Ctrl+2 三级标题 Ctrl+3 四级标题 Ctrl+4 五级标题 Ctrl+5 六级标题 Ctrl+6 4、字体 加粗 Ctrl+B ==代码高亮== 删除线 Atl+Shift+5 斜体 Ctrl+I 下划线 Ctrl+U 上标 x^2^ 下标 H~2~O 5、引用 123 Ctrl+Shift+Q 123 123 6、分割线 7、图片 Ctrl+Shift+I 8、超链接 Typora Ctrl+K 9、表格 周一 周二 周三 语文 数学 英语 数学 英语 语文 英语 数学 语文","headline":"Markdown快速入门","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1089,6 +1089,19 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
     
 
 
@@ -1139,6 +1152,73 @@
     <h3 class="pt-2 mt-1 mb-4 ml-1"
       data-toc-skip>Further Reading</h3>
     <div class="card-deck mb-4">
+    
+      
+      
+      <div class="card">
+        <a href="/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr 24
+  
+
+  <i class="unloaded">2021-04-24T19:55:00+08:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>记忆化搜索</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                记忆化搜索
+
+一、记忆化搜索与递归
+
+1、使用递归来计算斐波那契数列
+
+递归过程中，有许多的结果是被反复计算的，这样会大大降低算法的执行效率。
+
+我们用最简单的斐波那契数列来举例，如果使用递归来解，当输入数据变得很大时，花费的时间呈现指数级别的增长。
+
+1
+2
+3
+4
+5
+6
+7
+import time
+def recur(n):
+    if n &lt; 2: return 1
+    ...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
     
       
       
@@ -1269,65 +1349,6 @@
 7
 8
 def lower_bound(array, left, right, target):  # 求非降序范围[left,...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
-      
-      
-      <div class="card">
-        <a href="/posts/heapq/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago small"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Apr 18
-  
-
-  <i class="unloaded">2021-04-18T20:55:00+08:00</i>
-
-</span>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Python-heapq</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                Python-heapq
-
-一、堆(heap)
-
-二叉树堆是一棵完全二叉树，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）
-
-最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。
-
-最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。
-
-我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。
-
-堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所...
               </p>
             </div>
           </div>

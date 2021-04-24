@@ -24,27 +24,27 @@
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Python-heapq" />
+<meta property="og:title" content="记忆化搜索" />
 <meta name="author" content="SSZX" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Python-heapq" />
-<meta property="og:description" content="Python-heapq" />
-<link rel="canonical" href="https://sszx866.github.io/posts/heapq/" />
-<meta property="og:url" content="https://sszx866.github.io/posts/heapq/" />
+<meta name="description" content="记忆化搜索" />
+<meta property="og:description" content="记忆化搜索" />
+<link rel="canonical" href="https://sszx866.github.io/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" />
+<meta property="og:url" content="https://sszx866.github.io/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" />
 <meta property="og:site_name" content="伸手摘星" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-18T20:55:00+08:00" />
+<meta property="article:published_time" content="2021-04-24T19:55:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Python-heapq" />
+<meta property="twitter:title" content="记忆化搜索" />
 <meta name="twitter:site" content="@twitter" />
 <meta name="twitter:creator" content="@SSZX" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"dateModified":"2021-04-18T20:55:00+08:00","datePublished":"2021-04-18T20:55:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/heapq/"},"url":"https://sszx866.github.io/posts/heapq/","author":{"@type":"Person","name":"SSZX"},"description":"Python-heapq","headline":"Python-heapq","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"dateModified":"2021-04-24T19:55:00+08:00","datePublished":"2021-04-24T19:55:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sszx866.github.io/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"},"url":"https://sszx866.github.io/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/","author":{"@type":"Person","name":"SSZX"},"description":"记忆化搜索","headline":"记忆化搜索","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Python-heapq | 伸手摘星
+  <title>记忆化搜索 | 伸手摘星
   </title>
 
   <!--
@@ -452,7 +452,7 @@
       
 
         
-          <span>Python-heapq</span>
+          <span>记忆化搜索</span>
 
         
 
@@ -508,20 +508,6 @@
 
 
 
-  
-
-  
-
-  <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-  
-  
-
-  
-
-  
-
-
-
 <!-- return -->
 <div class="row">
 
@@ -529,7 +515,7 @@
 
     <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
 
-      <h1 data-toc-skip>Python-heapq</h1>
+      <h1 data-toc-skip>记忆化搜索</h1>
 
       <div class="post-meta text-muted d-flex flex-column">
         <!-- Published date and author -->
@@ -550,7 +536,7 @@
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Sun, Apr 18, 2021,  8:55 PM +0800"
+    title="Sat, Apr 24, 2021,  7:55 PM +0800"
   
 
   
@@ -560,10 +546,10 @@
   
 
   
-    Apr 18
+    Apr 24
   
 
-  <i class="unloaded">2021-04-18T20:55:00+08:00</i>
+  <i class="unloaded">2021-04-24T19:55:00+08:00</i>
 
 </span>
 
@@ -588,7 +574,7 @@
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1176 words">6 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1715 words">9 min</span>
 
 
           <!-- page views -->
@@ -602,115 +588,166 @@
 
         
 
-        <h1 id="python-heapq">Python-heapq</h1>
+        <h1 id="记忆化搜索">记忆化搜索</h1>
 
-<h2 id="一堆heap">一、堆(heap)</h2>
+<h2 id="一记忆化搜索与递归">一、记忆化搜索与递归</h2>
 
-<p>二叉树堆是一棵<strong>完全二叉树</strong>，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）</p>
+<h3 id="1使用递归来计算斐波那契数列">1、使用递归来计算斐波那契数列</h3>
 
-<p>最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。</p>
+<p>递归过程中，有许多的结果是被反复计算的，这样会大大降低算法的执行效率。</p>
 
-<p>最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。</p>
-
-<p>我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。</p>
-
-<p>堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所有子节点的值。</p>
-
-<p>整个最小堆的最小元素总是位于二叉树的根节点.</p>
-
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="../img/20190813101607984.png" alt="20190813101607984" /></p>
-
-<p><strong>二叉堆可以很容易用数组列表来表示</strong>，因为一棵高度为h的完全二叉树有2^h到2^(h+1)-1个节点，这样存放一个二叉堆就不会太浪费空间，而且一旦知道高度，就可以知道节点数的范围。</p>
-
-<p>python的heapq模块提供了对堆的支持。 heapq堆数据结构最重要的特征是heap[0]永远是最小的元素</p>
-
-<h2 id="二常用方法">二、常用方法</h2>
-
-<h3 id="heappushheap-item">heappush(heap, item)</h3>
-
-<p>heap为定义堆，item增加的元素</p>
+<p>我们用最简单的斐波那契数列来举例，如果使用递归来解，当输入数据变得很大时，花费的时间呈现指数级别的增长。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">heapq</span>
-<span class="n">h</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">h</span> <span class="c1">#[2]
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="k">def</span> <span class="nf">recur</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">recur</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">recur</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">recur</span><span class="p">(</span><span class="mi">35</span><span class="p">))</span> <span class="c1"># 14930352
+</span><span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span> <span class="c1"># 3.0233662128448486
 </span></pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="heapifylist">heapify(list)</h3>
+<h3 id="2使用装饰器优化算法">2、使用装饰器优化算法</h3>
 
-<p>将列表转换为堆</p>
+<p>Python中可以利用标准库中的functools这模块中的lru_cache装饰器。functools.lru_cache的作用主要是用来做缓存，他能把相对耗时的函数结果进行保存，避免传入相同的参数重复计算。同时，缓存并不会无限增长，不用的缓存会被释放。使用该装饰器可以起到空间换时间的效果。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
-<span class="n">heapq</span><span class="p">.</span><span class="n">heapify</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="nb">list</span> <span class="c1">#[1, 1, 3, 5, 2, 5, 8, 9, 6]
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="o">@</span><span class="n">lru_cache</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">recur</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">recur</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">recur</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">recur</span><span class="p">(</span><span class="mi">35</span><span class="p">))</span> <span class="c1"># 14930352
+</span><span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span> <span class="c1"># 1.6927719116210938e-05
 </span></pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="heappopheap">heappop(heap)</h3>
+<h3 id="3使用记忆化来计算斐波那契数列">3、使用记忆化来计算斐波那契数列</h3>
 
-<p>删除并返回最小值，因为堆的特征是heap[0]永远是最小的元素，所以一般都是删除第一个元素。</p>
+<p>除此之外，我们还可以使用记忆化搜索来起到同样的效果。</p>
+
+<p>记忆化搜索又称记忆化递归，记忆化搜索是在递归的过程中，将已经计算出来的结果保存起来，当之后的计算用到的时候直接取出结果，避免重复运算，因此极大的提高了算法的效率。</p>
+
+<p>特点：全局最优</p>
+
+<p><em>一定会用一个数组或其他存储结构存储之前得到的子问题的解（空间换时间）</em></p>
+
+<p>1、适用范围：必须是分步计算，且搜索过程中的一个搜索的结果必须建立在同类型问题的基础上</p>
+
+<p>2、思想：根据动态规划方程写出递归式，下函数的开头直接返回以前计算过的结果（需要一个存储结构来记录之前算过的结果）</p>
+
+<p>3、核心实现：</p>
+
+<p>a.要通过一个表记录已经存储下的搜索结果（二维数组或哈希表）</p>
+
+<p>b.状态表示，若用数组表示，数组的下标表示每种状态</p>
+
+<p>c.在每一状态搜索的开始，高效的使用数组（或哈希表）搜索这个状态是否出现过，如果已经做过，直接调用答案，回溯</p>
+
+<p>d.如果没有，则按正常方法搜索 （搜索过程中不断记录搜索结果）</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="c1">#1
-</span><span class="nb">list</span> <span class="c1">#[1, 2, 3, 5, 6, 5, 8, 9]
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span> <span class="c1"># 列表f储存了以计算过的结果，未计算过的用0来表示
+</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="n">search</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">search</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">36</span><span class="p">))</span> <span class="c1"># 14930352
+</span><span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span> <span class="c1"># 3.981590270996094e-05
 </span></pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="mergeheap1heap2">merge(heap1,heap2,…)</h3>
+<h2 id="二记忆化搜索应用">二、记忆化搜索应用</h2>
 
-<p>将多个堆合并</p>
+<h3 id="-组合总和-ⅳ"><a href="https://leetcode-cn.com/problems/combination-sum-iv/"> 组合总和 Ⅳ</a></h3>
+
+<p>给你一个由 <strong>不同</strong> 整数组成的数组 <code class="language-plaintext highlighter-rouge">nums</code> ，和一个目标整数 <code class="language-plaintext highlighter-rouge">target</code> 。请你从 <code class="language-plaintext highlighter-rouge">nums</code> 中找出并返回总和为 <code class="language-plaintext highlighter-rouge">target</code> 的元素组合的个数。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="n">h</span><span class="p">,</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">heapq</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
-<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span> <span class="c1">#3 4 5 8 5 6 6 99 9 1000
-</span></pre></td></tr></tbody></table></code></div></div>
-
-<h3 id="nlargestnheap">nlargest(n,heap)</h3>
-
-<p>查询堆中的最大n个元素</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>
-<span class="n">heapq</span><span class="p">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="c1">#[99, 9, 8]
-</span></pre></td></tr></tbody></table></code></div></div>
-
-<h3 id="heapqnsmallestnheap">heapq.nsmallest(n,heap)</h3>
-
-<p>查询堆中的最小n个元素</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>
-<span class="n">heapq</span><span class="p">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="c1">#[3, 5, 5]
-</span></pre></td></tr></tbody></table></code></div></div>
-
-<h2 id="三堆与对顶堆">三、堆与对顶堆</h2>
-
-<h4 id="-数组中的第k个最大元素"><a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/"> 数组中的第K个最大元素</a></h4>
-
-<p>在未排序的数组中找到第 <strong>k</strong> 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="n">输入</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="n">和</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">输出</span><span class="p">:</span> <span class="mi">5</span>
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="n">输入</span><span class="err">：</span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">target</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">输出</span><span class="err">：</span><span class="mi">7</span>
+<span class="n">解释</span><span class="err">：</span>
+<span class="n">所有可能的组合为</span><span class="err">：</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">请注意</span><span class="err">，</span><span class="n">顺序不同的序列被视作不同的组合</span><span class="err">。</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>思路：维护一个大顶堆和一个小顶堆，将小顶堆的容量设为k，且小顶堆中根大于等于大顶堆根，由不等式传递性可知，小顶堆所有元素均大于等于大顶堆，即小顶堆根节点为所求</p>
+<p>首先写出递归代码</p>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="../img/IMG_A2421197E9A7-1.jpeg" alt="IMG_A2421197E9A7-1" /></p>
+<p>要求构成 target 有多少种组合方法，这里的变量应该是 target，所以，令函数 dp(x) 表示从 nums 中挑选数字可以构成 x 的方法数（递归最基本的就是理解这个定义！）。最终返回的应该是 dp(target)。</p>
+
+<p>对于题目输入 nums = [1,2,3], target = 4 时：要求有多少种方法能够成 4，即要求 dp(4)。思考过程如下。</p>
+
+<p>我们遍历 nums，判断如果构成 target 的时候，选择了 nums[i]，那么剩余的 target - nums[i] 仍在 nums 中选的话，会有多少种方法。</p>
+
+<p>对于 nums[0] = 1， 我们要求有多少种方法能够成 target - nums[0] = 4 - 1 = 3，即要求 dp(3)；
+对于 nums[1] = 2, 我们要求有多少种方法能够成 target - nums[1] = 4 - 2 = 2，即要求 dp(2)；
+对于 nums[2] = 3, 我们要求有多少种方法能够成 target - nums[2] = 4 - 3 = 1，即要求 dp(1)；
+所以，dp(4) = dp(3) + dp(2) + dp(1)。然后调用函数继续求解 dp(3), dp(2) 和 dp(1)。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c1"># 递归
+</span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">combinationSum4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="n">target</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="bp">self</span><span class="p">.</span><span class="n">combinationSum4</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span> <span class="o">-</span> <span class="n">num</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>优化一下即可写为记忆化搜索方法，时间复杂度大大降低。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -728,31 +765,29 @@
 14
 15
 16
-17
-18
-19
-</pre></td><td class="rouge-code"><pre><span class="c1"># 由于heapq只有小顶堆，故传入(-num,num)使其成为大顶堆(heapq默认按照元组第一个元素排序)
-</span><span class="kn">import</span> <span class="nn">heapq</span>
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">findKthLargest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">heapSmall</span><span class="p">,</span> <span class="n">heapBig</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
-                <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="n">heapSmall</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapBig</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">tmp</span><span class="p">,</span> <span class="n">tmp</span><span class="p">))</span>
-                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapBig</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">num</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
-        <span class="c1"># print(num, heapq.nsmallest(2, heapSmall), heapq.nsmallest(5, heapBig))
-</span>				<span class="c1"># 4 [(5, 5), (6, 6)] [(-4, 4), (-3, 3), (-2, 2), (-1, 1)]
-</span>        <span class="k">return</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></td><td class="rouge-code"><pre><span class="c1"># 记忆化搜索
+</span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">combinationSum4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 初始化为0会超时，因为有案例中途结果为0，干脆直接初始化为None
+</span>        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">dp</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">dp</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="n">target</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="bp">self</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span> <span class="o">-</span> <span class="n">num</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">target</span><span class="p">]</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>上述算法也可简写为小顶堆</p>
+<p>通过进一步优化，可以将算法由记忆化搜索优化为动态规划。递归是自顶向下的计算方式（大问题-&gt;小问题），而动态规划是自底向上的计算方式（小问题-&gt;大问题）。</p>
+
+<p>动态规划也同样地定义 dp 数组，dp[i] 表示从 nums 中抽取元素组成 target 的方案数。dp 数组的长度是 target + 1。其中 dp[0] 表示从数组中抽取任何元素组合成 0 的方案数，根据我们在递归时的分析，我们知道需要令 dp[0] = 1。其他位置的 dp[i] 需要初始化为 0，表示我们还没有计算过这个位置，默认的方案数为0。</p>
+
+<p>想要计算得到 target，需要把 dp[1~target] 的各个元素都计算出来。每个位置的计算都是为了后面的计算做准备。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -764,93 +799,25 @@
 8
 9
 10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="c1"># 小顶堆
-</span><span class="kn">import</span> <span class="nn">heapq</span>
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">findKthLargest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">heapSmall</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
-                <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="n">heapSmall</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)</span>
-                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heapSmall</span><span class="p">)</span>
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">combinationSum4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">num</span><span class="p">:</span>
+                    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">num</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">target</span><span class="p">]</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="三优先队列">三、优先队列</h2>
+<h2 id="reference">Reference</h2>
 
-<p>优先队列中的每个元素都有优先级，而优先级高（或者低）的将会先出队，而优先级相同的则按照其在优先
-队列中的顺序依次出队。</p>
+<p>1.<a href="https://blog.csdn.net/wzqnls/article/details/78506022">functools.lru_cache装饰器详解</a></p>
 
-<h4 id="-丑数-ii"><a href="https://leetcode-cn.com/problems/ugly-number-ii/"> 丑数 II</a></h4>
+<p>2.<a href="https://zhuanlan.zhihu.com/p/344599752">记忆化递归(记忆化搜索)</a></p>
 
-<p>给你一个整数 <code class="language-plaintext highlighter-rouge">n</code> ，请你找出并返回第 <code class="language-plaintext highlighter-rouge">n</code> 个 <strong>丑数</strong> 。</p>
-
-<p><strong>丑数</strong> 就是只包含质因数 <code class="language-plaintext highlighter-rouge">2</code>、<code class="language-plaintext highlighter-rouge">3</code> 和/或 <code class="language-plaintext highlighter-rouge">5</code> 的正整数。</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="n">输入</span><span class="err">：</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">输出</span><span class="err">：</span><span class="mi">12</span>
-<span class="n">解释</span><span class="err">：</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span> <span class="n">是由前</span> <span class="mi">10</span> <span class="n">个丑数组成的序列</span><span class="err">。</span>
-</pre></td></tr></tbody></table></code></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="n">输入</span><span class="err">：</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">输出</span><span class="err">：</span><span class="mi">1</span>
-<span class="n">解释</span><span class="err">：</span><span class="mi">1</span> <span class="n">通常被视为丑数</span><span class="err">。</span>
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>思路:使用优先队列：</p>
-
-<ol>
-  <li>起始先将最小丑数 11 放入队列</li>
-  <li>每次从队列取出最小值 x，然后将 x 所对应的丑数 2x、3x和 5x 进行入队。</li>
-  <li>对步骤 2 循环多次，第 n 次出队的值即是答案。</li>
-</ol>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">heapq</span>
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">nthUglyNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">queue</span><span class="p">,</span> <span class="n">dic</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="n">heapq</span><span class="p">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
-        <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
-                <span class="n">tmp</span> <span class="o">=</span> <span class="n">ans</span> <span class="o">*</span> <span class="n">i</span>
-                <span class="k">if</span> <span class="n">tmp</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
-                    <span class="n">dic</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
-                    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span>
-            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">ans</span>
-</pre></td></tr></tbody></table></code></div></div>
-
+<p>3.<a href="https://leetcode-cn.com/problems/combination-sum-iv/solution/fu-xue-ming-zhu-cong-ji-yi-hua-di-gui-tu-rqwy/">【负雪明烛】从「记忆化递归」推导「动态规划」</a></p>
 
 
       </div>
@@ -900,19 +867,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=Python-heapq - 伸手摘星&url=https://sszx866.github.io/posts/heapq/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=记忆化搜索 - 伸手摘星&url=https://sszx866.github.io/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=Python-heapq - 伸手摘星&u=https://sszx866.github.io/posts/heapq/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=记忆化搜索 - 伸手摘星&u=https://sszx866.github.io/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=Python-heapq - 伸手摘星&url=https://sszx866.github.io/posts/heapq/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=记忆化搜索 - 伸手摘星&url=https://sszx866.github.io/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -1114,46 +1081,46 @@
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
   
 
   
@@ -1477,17 +1444,17 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <a href="/posts/Selenium/" class="btn btn-outline-primary"
+  <a href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>Selenium</p>
+    <p>前缀和</p>
   </a>
   
 
   
-  <a href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88/" class="btn btn-outline-primary"
+  <span class="btn btn-outline-primary disabled"
     prompt="Newer">
-    <p>双指针</p>
-  </a>
+    <p>-</p>
+  </span>
   
 
 </div>
@@ -1501,18 +1468,6 @@ intent={act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER...
 
 </div> <!-- .row -->
 
-
-
-  <!--
-  image lazy load: https://github.com/ApoorvSaxena/lozad.js
--->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-
-<script type="text/javascript">
-  const imgs = document.querySelectorAll('.post-content img');
-  const observer = lozad(imgs);
-  observer.observe();
-</script>
 
 
 
