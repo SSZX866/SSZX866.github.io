@@ -1020,7 +1020,6 @@
         <div class="post-meta mb-3">
           <i class="far fa-folder-open fa-fw mr-1"></i>
           
-            <a href='/categories/code/'>Code</a>,
             <a href='/categories/python/'>Python</a>
         </div>
         
@@ -1164,8 +1163,6 @@
     
     
     
-    
-      
     
   
     
@@ -1376,6 +1373,19 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
     
   
 
@@ -1424,7 +1434,7 @@
       
       
       <div class="card">
-        <a href="/posts/Scrapy/">
+        <a href="/posts/heapq/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1445,14 +1455,14 @@
   
 
   
-    Mar 13
+    Apr 18
   
 
-  <i class="unloaded">2021-03-13T18:32:00+08:00</i>
+  <i class="unloaded">2021-04-18T20:55:00+08:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Scrapy</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Python-heapq</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1461,42 +1471,19 @@
 
 
 
-                Scrapy
+                Python-heapq
 
+一、堆(heap)
 
-  
-    创建工程
-  
+二叉树堆是一棵完全二叉树，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）
 
+最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。
 
-1
-scrapy startproject &lt;name&gt;
+最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。
 
+我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。
 
-
-  
-    创建爬虫
-  
-
-
-1
-scrapy genspider &lt;name&gt; &lt;domain&gt;
-
-
-
-  
-    运行爬虫
-  
-
-
-1
-scrapy crawl &lt;spider&gt;
-
-
-
-  
-    列出所有爬虫
-  ...
+堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所...
               </p>
             </div>
           </div>
@@ -1506,7 +1493,7 @@ scrapy crawl &lt;spider&gt;
       
       
       <div class="card">
-        <a href="/posts/Appium/">
+        <a href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1527,14 +1514,14 @@ scrapy crawl &lt;spider&gt;
   
 
   
-    Mar 23
+    Apr 19
   
 
-  <i class="unloaded">2021-03-23T16:22:00+08:00</i>
+  <i class="unloaded">2021-04-19T20:55:00+08:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Appium</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>双指针</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1543,23 +1530,25 @@ scrapy crawl &lt;spider&gt;
 
 
 
-                Selenium
+                集中常见的双指针技巧
 
-一、获取adb包名和activity
+一、对撞指针
 
-在cmd中执行
+对撞指针一般用在有序数组中，将指向左侧的索引定义为左指针(left)，右侧的定义为右指针(right)，然后从两头向中间进行数组遍历，结束条件为两指针相遇。
 
-1
-adb shell dumpsys activity recents | find "intent={"
+二分算法
 
-
-会显示如下，最近的 几个 activity 信息，
+二分算法是对撞指针典型应用
 
 1
 2
 3
 4
-intent={act=android.intent.action.MAIN cat=[android.intent.categor...
+5
+6
+7
+8
+def lower_bound(array, left, right, target):  # 求非降序范围[left,...
               </p>
             </div>
           </div>
@@ -1569,7 +1558,7 @@ intent={act=android.intent.action.MAIN cat=[android.intent.categor...
       
       
       <div class="card">
-        <a href="/posts/Selenium/">
+        <a href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1590,14 +1579,14 @@ intent={act=android.intent.action.MAIN cat=[android.intent.categor...
   
 
   
-    Mar 25
+    Apr 22
   
 
-  <i class="unloaded">2021-03-25T10:16:00+08:00</i>
+  <i class="unloaded">2021-04-22T11:55:00+08:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Selenium</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>前缀和</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1606,19 +1595,30 @@ intent={act=android.intent.action.MAIN cat=[android.intent.categor...
 
 
 
-                Selenium
+                一、前缀和
 
-一、CSS Selector
+前缀和是一个数组的某项下标之前(包括此项元素)的所有数组元素的和。
 
-‘&gt;’ 和 ‘空格’    ‘ &gt;’ 表示子节点，’空格’ 表示后代
+设 b[] 为前缀和数组，a[] 为原数组，根据这句话可以得到前缀和的定义式和递推式：
 
-’#’表示id ‘.’表示css ‘,’ 组选择器可选取多个元素且优先级最低
 
-:nth-child(x) 选取第x个子节点
-
-:nth-last-child(x) 选取倒数第x个子节点
-
-span:nth-of-type(1) 选取第一个标签为span的节...
+  
+    
+       
+      定义式
+      递推式
+    
+  
+  
+    
+      一维前缀和
+      
+      
+    
+    
+      二维前缀和
+      
+  ...
               </p>
             </div>
           </div>
@@ -1749,8 +1749,6 @@ span:nth-of-type(1) 选取第一个标签为span的节...
     
     
     
-    
-      
     
   
     

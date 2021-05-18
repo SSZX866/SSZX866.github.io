@@ -4,7 +4,7 @@
   <id>https://sszx866.github.io/</id>
   <title>伸手摘星</title>
   <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
-  <updated>2021-04-24T20:58:34+08:00</updated>
+  <updated>2021-05-18T22:09:44+08:00</updated>
   <author>
     <name>Weijia Li</name>
     <uri>https://sszx866.github.io/</uri>
@@ -17,6 +17,64 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>迭代与迭代器</title>
+    <link href="https://sszx866.github.io/posts/%E8%BF%AD%E4%BB%A3%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/" rel="alternate" type="text/html" title="迭代与迭代器" />
+    <published>2021-05-10T20:35:00+08:00</published>
+  
+    <updated>2021-05-10T20:35:00+08:00</updated>
+  
+    <id>https://sszx866.github.io/posts/%E8%BF%AD%E4%BB%A3%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/</id>
+    <content src="https://sszx866.github.io/posts/%E8%BF%AD%E4%BB%A3%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/" />
+    <author>
+      <name>Weijia Li</name>
+    </author>
+
+  
+    
+    <category term="Code" />
+    
+    <category term="LeetCode" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      872. 叶子相似的树
+
+请考虑一棵二叉树上所有的叶子，这些叶子的值按从左到右的顺序排列形成一个 叶值序列 。
+
+
+
+举个例子，如上图所示，给定一棵叶值序列为 (6, 7, 4, 9, 8) 的树。
+
+如果有两棵二叉树的叶值序列是相同，那么我们就认为它们是 叶相似 的。
+
+如果给定的两个根结点分别为 root1 和 root2 的树是叶相似的，则返回 true；否则返回 false 。
+
+一、迭代
+
+思路与算法
+
+递归算法需要遍历完整棵树，复杂度较高，因此应该考虑迭代算法。因为树的形状是不同的，因此层次遍历得到的叶子结点顺序有可能不同（比如第一个测试案例），这里采用前序的写法，因为前序实现起来较简单。
+首先想到的是遍历一棵树，将结果保存下来，再遍历另一棵树，边遍历边比较，如果结果错误直接返回False，可以减少部分遍历次数。
+
+代码
+
+class Solution:
+    def ...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -36,7 +94,7 @@
     
     <category term="Code" />
     
-    <category term="Python" />
+    <category term="LeetCode" />
     
   
 
@@ -91,9 +149,9 @@ Python中可以利用标准库中的functools这模块中的lru_cache装饰器�
 
   
     
-    <category term="LeetCode" />
+    <category term="Code" />
     
-    <category term="Python" />
+    <category term="LeetCode" />
     
   
 
@@ -163,9 +221,9 @@ Python中可以利用标准库中的functools这模块中的lru_cache装饰器�
 
   
     
-    <category term="LeetCode" />
+    <category term="Code" />
     
-    <category term="Python" />
+    <category term="LeetCode" />
     
   
 
@@ -217,7 +275,7 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left, right)�
     
     <category term="Code" />
     
-    <category term="Python" />
+    <category term="LeetCode" />
     
   
 
@@ -254,64 +312,6 @@ python的heapq模块提供了对堆的支持。 heapq堆数据结构最重要的
 二、常用方法
 
 heappush(...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Selenium</title>
-    <link href="https://sszx866.github.io/posts/Selenium/" rel="alternate" type="text/html" title="Selenium" />
-    <published>2021-03-25T10:16:00+08:00</published>
-  
-    <updated>2021-03-25T10:16:00+08:00</updated>
-  
-    <id>https://sszx866.github.io/posts/Selenium/</id>
-    <content src="https://sszx866.github.io/posts/Selenium/" />
-    <author>
-      <name>Weijia Li</name>
-    </author>
-
-  
-    
-    <category term="Code" />
-    
-    <category term="Python" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Selenium
-
-一、CSS Selector
-
-‘&amp;gt;’ 和 ‘空格’    ‘ &amp;gt;’ 表示子节点，’空格’ 表示后代
-
-’#’表示id ‘.’表示css ‘,’ 组选择器可选取多个元素且优先级最低
-
-:nth-child(x) 选取第x个子节点
-
-:nth-last-child(x) 选取倒数第x个子节点
-
-span:nth-of-type(1) 选取第一个标签为span的节点
-
-span:nth-last-of-type(1) 选取倒数第一个标签为span的节点
-
-#t1 :nth-child(odd/even) 选取id为t1下的奇数/偶数子节点
-
-#t1 p:nth-child(odd/even) 选取id为t1下的标签为p的奇数/偶数节点
-
-h3 + span 选取所有与h3相邻（兄弟）的span节点
-
-h3 ~ span 选取所有在h3后所有的span节点（...
     </summary>
   
 

@@ -752,8 +752,8 @@
         <div class="post-meta mb-3">
           <i class="far fa-folder-open fa-fw mr-1"></i>
           
-            <a href='/categories/leetcode/'>LeetCode</a>,
-            <a href='/categories/python/'>Python</a>
+            <a href='/categories/code/'>Code</a>,
+            <a href='/categories/leetcode/'>LeetCode</a>
         </div>
         
 
@@ -900,8 +900,6 @@
     
     
     
-      
-    
   
     
     
@@ -1002,6 +1000,19 @@
 
 
 
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
   
@@ -1159,6 +1170,65 @@
       
       
       <div class="card">
+        <a href="/posts/heapq/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr 18
+  
+
+  <i class="unloaded">2021-04-18T20:55:00+08:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Python-heapq</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                Python-heapq
+
+一、堆(heap)
+
+二叉树堆是一棵完全二叉树，分为最大堆与最小堆。（ heapq库中的堆默认是最小堆）
+
+最大堆，树种各个父节点的值总是大于或等于任何一个子节点的值。
+
+最小堆，树种各个父节点的值总是小于或等于任何一个子节点的值。
+
+我们一般使用二叉堆来实现优先级队列,它的内部调整算法复杂度为logN。
+
+堆是一个二叉树，其中最小堆每个父节点的值都小于或等于其所...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
         <a href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88/">
           <div class="card-body">
             <!--
@@ -1216,7 +1286,7 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left, right)�
       
       
       <div class="card">
-        <a href="/posts/Python/">
+        <a href="/posts/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1237,14 +1307,14 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left, right)�
   
 
   
-    Feb  7
+    Apr 24
   
 
-  <i class="unloaded">2021-02-07T18:32:00+08:00</i>
+  <i class="unloaded">2021-04-24T19:55:00+08:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Python学习笔记</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>记忆化搜索</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1253,105 +1323,27 @@ def lower_bound(array, left, right, target):  # 求非降序范围[left, right)�
 
 
 
-                Python学习笔记
+                记忆化搜索
 
-1、内置函数（Built-in Functions）
+一、记忆化搜索与递归
 
-set()
+1、使用递归来计算斐波那契数列
 
-set() 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
+递归过程中，有许多的结果是被反复计算的，这样会大大降低算法的执行效率。
 
-参数说明：
+我们用最简单的斐波那契数列来举例，如果使用递归来解，当输入数据变得很大时，花费的时间呈现指数级别的增长。
 
-
-  iterable – 可迭代对象对象；
-
-
-&gt;&gt;&gt;x = set('runoob')
-&gt;&gt;&gt; y = set('google')
-&gt;...
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    
-      
-      
-      <div class="card">
-        <a href="/posts/Scrapy/">
-          <div class="card-body">
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago small"
-  
-
-  
-   >
-
-  
-  
-
-  
-    Mar 13
-  
-
-  <i class="unloaded">2021-03-13T18:32:00+08:00</i>
-
-</span>
-
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>Scrapy</h3>
-            <div class="text-muted small">
-              <p>
-                
-
-
-
-
-
-                Scrapy
-
-
-  
-    创建工程
-  
-
-
-scrapy startproject &lt;name&gt;
-
-
-
-  
-    创建爬虫
-  
-
-
-scrapy genspider &lt;name&gt; &lt;domain&gt;
-
-
-
-  
-    运行爬虫
-  
-
-
-scrapy crawl &lt;spider&gt;
-
-
-
-  
-    列出所有爬虫
-  
-
-
-scr...
+1
+2
+3
+4
+5
+6
+7
+import time
+def recur(n):
+    if n &lt; 2: return 1
+    ...
               </p>
             </div>
           </div>
@@ -1494,8 +1486,6 @@ scr...
     
     
     
-    
-      
     
   
     
